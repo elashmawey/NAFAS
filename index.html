@@ -1,0 +1,3172 @@
+<!DOCTYPE html>
+<!--
+  ══════════════════════════════════════════════════════════════════════════
+   نَفَس Nafas — تطبيق التنفس الموجه + أصوات النوم المولّدة + الذكاء الاصطناعي
+   All-in-One Autonomous Single-File Progressive Breathing & Sleep App
+   عربي (RTL) / English (LTR) · صفر ملفات خارجية · يعمل أوفلاين بنسبة 100%
+   تحديث بصري: سماء بارالاكس + ثيمات لونية لكل نمط + شهب عابرة + موجات تنفّس + فينيت سينمائي
+   خلفيات تأمّل مرسومة بالكود: محيط عميق · صحراء ليلية · جبال ضباب · غابة يراعات
+   ذكاء اصطناعي متطور: محرك LLM عصبي محلي عبر WebGPU (يعمل بلا إنترنت بعد أول تنزيل)
+   عيادة النوم والأرق 4-7-8 · نظام ترقية Pro ودعم صادق عبر PayPal (بدون أي وعود وهمية)
+   رحلة النَفَس نحو النوم العميق: إرشاد صوتي كامل 6 دقائق (TTS دافئ + مطر + 432Hz يخفت للصمت)
+   مشهد جديد: بحيرة القمر — قمر متوهج وانعكاس متموج ونجمات تتلألأ
+   بارالاكس عمق متعدد الطبقات (8D-style): كل عنصر في كل مشهد يتحرك بسرعة مختلفة
+   عن الآخر تبعاً لحركة الماوس (ديسكتوب) أو ميل الجهاز الحقيقي (موبايل، بإذن صريح)
+   — إيهام عمق ثلاثي الأبعاد حقيقي بدون أي مكتبات خارجية أو صور، ملف واحد بالكامل
+   + ذاكرة محادثة + رحلات تنفس متعددة المراحل + رؤية الكاميرا لمراقبة تنفسك الفعلية
+  ══════════════════════════════════════════════════════════════════════════
+-->
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#060a13">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="description" content="نَفَس / Nafas — تطبيق تنفس علمي موجه، أصوات نوم وموجات ثنائية مولدة كودياً، اهتزازات لمسية وتوجيه صوتي ومدرب ذكي، كل ذلك في ملف واحد.">
+<title>نَفَس — تنفّس بوعي، نَم بعمق</title>
+<meta property="og:title" content="نَفَس Nafas — تنفّس موجّه + أصوات نوم مولّدة">
+<meta property="og:description" content="تطبيق تنفس علمي موجه، أصوات نوم وموجات ثيتا مولّدة كودياً، مدرب ذكي — في ملف واحد. عربي/English.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="نَفَس Nafas — Guided Breathing & Sleep Sounds">
+<meta name="twitter:description" content="Scientific breathing patterns, generated sleep sounds & brainwave mixer, AI coach. One file · AR/EN.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23060a13'/%3E%3Ccircle cx='32' cy='32' r='19' fill='none' stroke='%2386e6cf' stroke-width='5'/%3E%3Ccircle cx='32' cy='32' r='9' fill='%237e94ff'/%3E%3C/svg%3E">
+
+<!-- Web App Manifest (Data URI) لإضافة التطبيق للشاشة الرئيسية يدوياً -->
+<link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22%D9%86%D9%8E%D9%81%D9%8E%D8%B3%20-%20Nafas%22%2C%22short_name%22%3A%22Nafas%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23060a13%22%2C%22theme_color%22%3A%22%23060a13%22%2C%22description%22%3A%22Breathing%20%26%20Sleep%20Companion%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage%2Fsvg%2Bxml%2C%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20192%20192'%3E%3Ccircle%20cx%3D'96'%20cy%3D'96'%20r%3D'90'%20fill%3D'%23060a13'%2F%3E%3Ccircle%20cx%3D'96'%20cy%3D'96'%20r%3D'60'%20fill%3D'none'%20stroke%3D'%2386e6cf'%20stroke-width%3D'8'%2F%3E%3Ccircle%20cx%3D'96'%20cy%3D'96'%20r%3D'35'%20fill%3D'%237e94ff'%20opacity%3D'0.8'%2F%3E%3C%2Fsvg%3E%22%2C%22sizes%22%3A%22192x192%22%2C%22type%22%3A%22image%2Fsvg%2Bxml%22%7D%5D%7D">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ───────────── النواة والسمات الأساسية ───────────── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --f-ar:'Tajawal',system-ui,-apple-system,sans-serif;
+  --f-en:'Inter','Tajawal',system-ui,sans-serif;
+  --f:var(--f-ar);
+  --bg:#060a13;
+  --panel:rgba(14,20,36,0.85);
+  --card-border:rgba(255,255,255,0.11);
+  --accent:#86e6cf;
+  --accent-glow:rgba(134,230,207,0.3);
+  --blue:#7e94ff;
+  --warm:#f2cd96;
+  --text:#eef2fb;
+  --muted:#93a0b8;
+  --dim:#58647c;
+}
+html[lang="en"]{--f:var(--f-en)}
+html,body{height:100%;width:100%;overflow-x:hidden}
+body{
+  font-family:var(--f);
+  background:var(--bg);
+  color:var(--text);
+  min-height:100dvh;
+  display:grid;
+  grid-template-rows:auto auto 1fr auto;
+  -webkit-tap-highlight-color:transparent;
+  user-select:none;-webkit-user-select:none;
+  position:relative;
+}
+
+/* ───────────── خلفية الأورورا وجزيئات النجوم ───────────── */
+#stars{position:fixed;inset:0;z-index:0;pointer-events:none}
+.sky{position:fixed;inset:0;z-index:0;pointer-events:none;
+  transform:translate3d(calc(var(--px,0)*16px),calc(var(--py,0)*10px),0);
+  transition:transform 1.3s cubic-bezier(.2,.8,.2,1);will-change:transform}
+.aurora{position:absolute;border-radius:50%;opacity:.35;pointer-events:none;
+  filter:blur(95px) hue-rotate(var(--hue,0deg));transition:opacity 1.4s ease,filter 1.6s ease}
+.a1{width:56vmax;height:56vmax;top:-18vmax;inset-inline-start:-14vmax;background:radial-gradient(circle,#133f68,transparent 70%);animation:dr1 42s ease-in-out infinite alternate}
+.a2{width:50vmax;height:50vmax;bottom:-16vmax;inset-inline-end:-12vmax;background:radial-gradient(circle,#0c504a,transparent 70%);animation:dr2 50s ease-in-out infinite alternate}
+.a3{width:36vmax;height:36vmax;top:40%;left:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(126,148,255,.18),transparent 70%);animation:dr1 58s ease-in-out infinite alternate-reverse}
+.a4{width:44vmax;height:44vmax;bottom:-14vmax;inset-inline-start:-16vmax;background:radial-gradient(circle,#141a4d,transparent 70%);animation:dr2 64s ease-in-out infinite alternate-reverse}
+
+/* ───────── الثيمات اللونية: هوية بصرية لكل نمط تنفّس (درجة اللون تتحوّل بنعومة) ───────── */
+body{--hue:0deg}
+body[data-theme="box"]{--hue:35deg}
+body[data-theme="coherent"]{--hue:95deg}
+body[data-theme="sigh"]{--hue:-55deg}
+body[data-theme="energy"]{--hue:-145deg}
+body[data-theme="custom"]{--hue:-110deg}
+
+/* ───────── عمق سينمائي: فينيت + حبيبات فيلم خفيفة ───────── */
+.vignette{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 130% 100% at 50% 40%,transparent 52%,rgba(2,4,10,.55) 100%)}
+.grain{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ───────────── بارالاكس العمق متعدد الطبقات (Multi-layer Depth Parallax) ─────────────
+   كل طبقة تتحرك بمقدار مختلف (--d) نسبةً لحركة الماوس/الميل — الطبقات القريبة تتحرك
+   أكثر والبعيدة أقل، فينتج إيهام عمق حقيقي. عنصر التغريد الأصلي غير متأثر لأن الحركة
+   مطبّقة على "غلاف" أب فقط، لا على العنصر المتحرك بحركته الخاصة (لا تعارض بينهما). */
+.pz{position:absolute;top:0;right:0;bottom:0;left:0;transform:translate3d(calc(var(--px,0)*var(--d,6)*1px),calc(var(--py,0)*var(--d,6)*.6px),0);
+  transition:transform 1s cubic-bezier(.2,.8,.2,1);will-change:transform}
+/* توقف الرسوم بالكامل عند غياب التبويب: حفاظاً على الطاقة (لا حركة = لا استهلاك) */
+body.tab-hidden .pz{transition:none}
+body.tab-hidden .scene *,body.tab-hidden .aurora,body.tab-hidden .ml-star,
+body.tab-hidden .ff,body.tab-hidden .o-bub,body.tab-hidden .o-rays,
+body.tab-hidden .d-moon,body.tab-hidden .m-fog,body.tab-hidden .ml-moon,
+body.tab-hidden .ml-shimmer,body.tab-hidden .ml-reflection,body.tab-hidden .o-wave{
+  animation-play-state:paused!important}
+
+/* ───────────── خلفيات التأمّل (Meditation Scenes) — مشاهد مرسومة بالكود ───────────── */
+.scene{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;
+  opacity:0;visibility:hidden;transition:opacity 2s ease,visibility 0s linear 2s}
+body[data-scene="ocean"] .scene-ocean,
+body[data-scene="desert"] .scene-desert,
+body[data-scene="mountains"] .scene-mountains,
+body[data-scene="forest"] .scene-forest{opacity:1;visibility:visible;transition:opacity 2s ease}
+body:not([data-scene="default"]) .sky{opacity:.14}
+body[data-scene="moonlake"] .scene-moonlake{opacity:1;visibility:visible;transition:opacity 2s ease}
+body.night .scene{filter:brightness(.6) saturate(.85)}
+
+/* 1) المحيط العميق */
+.scene-ocean{background:linear-gradient(180deg,#031022 0%,#04263e 48%,#053350 100%)}
+.o-rays{position:absolute;top:-10%;inset-inline-start:26%;width:13%;height:72%;
+  background:linear-gradient(180deg,rgba(140,220,255,.10),transparent 75%);
+  transform:skewX(-14deg);filter:blur(6px);animation:raySway 11s ease-in-out infinite alternate}
+.o-rays.r2{inset-inline-start:44%;width:8%;animation-duration:14s;animation-delay:-4s;opacity:.7}
+.o-rays.r3{inset-inline-start:57%;width:5%;animation-duration:17s;animation-delay:-8s;opacity:.5}
+@keyframes raySway{from{transform:skewX(-14deg) translateX(-2%)}to{transform:skewX(-10deg) translateX(3%)}}
+.o-wave{position:absolute;left:-50%;bottom:0;width:200%;
+  background-repeat:repeat-x;background-size:50% 100%}
+.o-wave.w1{height:30%;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 300' preserveAspectRatio='none'%3E%3Cpath d='M0,140 C150,80 350,190 600,140 C850,90 1050,180 1200,140 L1200,300 L0,300 Z' fill='%2304203a'/%3E%3C/svg%3E");animation:oceanDrift 26s linear infinite}
+.o-wave.w2{height:24%;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 300' preserveAspectRatio='none'%3E%3Cpath d='M0,140 C150,80 350,190 600,140 C850,90 1050,180 1200,140 L1200,300 L0,300 Z' fill='%23032e52'/%3E%3C/svg%3E");animation:oceanDrift 19s linear infinite reverse}
+.o-wave.w3{height:17%;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 300' preserveAspectRatio='none'%3E%3Cpath d='M0,140 C150,80 350,190 600,140 C850,90 1050,180 1200,140 L1200,300 L0,300 Z' fill='%230a4a75'/%3E%3C/svg%3E");animation:oceanDrift 13s linear infinite}
+@keyframes oceanDrift{to{transform:translateX(50%)}}
+.o-bub{position:absolute;bottom:-20px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.5),rgba(160,220,255,.12) 65%,transparent);
+  animation:oceanRise linear infinite}
+@keyframes oceanRise{0%{transform:translateY(0);opacity:0}12%{opacity:.5}88%{opacity:.35}100%{transform:translateY(-108vh);opacity:0}}
+
+/* 2) الصحراء الليلية */
+.scene-desert{background:linear-gradient(180deg,#070b26 0%,#101642 38%,#241b4e 62%,#4a2c56 82%,#6b3d5b 100%)}
+.d-moon{position:absolute;top:11%;inset-inline-start:16%;width:clamp(56px,11vmin,96px);aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle at 38% 34%,#fff9ec,#f5e6c4 68%,#e8d2a8);
+  box-shadow:0 0 40px rgba(255,240,200,.5),0 0 120px rgba(255,225,170,.25);
+  animation:moonBreath 9s ease-in-out infinite}
+@keyframes moonBreath{50%{box-shadow:0 0 55px rgba(255,240,200,.65),0 0 150px rgba(255,225,170,.35)}}
+.d-dune{position:absolute;left:0;right:0;bottom:0;background-repeat:repeat-x;background-size:100% 100%}
+.d-dune.g1{height:26%;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 400' preserveAspectRatio='none'%3E%3Cpath d='M0,300 C220,150 480,120 700,230 C900,320 1080,310 1200,180 L1200,400 L0,400 Z' fill='%23170e2e'/%3E%3C/svg%3E")}
+.d-dune.g2{height:19%;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 400' preserveAspectRatio='none'%3E%3Cpath d='M0,340 C250,220 500,180 760,280 C950,350 1100,330 1200,260 L1200,400 L0,400 Z' fill='%2320123c'/%3E%3C/svg%3E")}
+.d-dune.g3{height:13%;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 400' preserveAspectRatio='none'%3E%3Cpath d='M0,380 C300,300 560,270 820,340 C1000,385 1120,370 1200,330 L1200,400 L0,400 Z' fill='%23291549'/%3E%3C/svg%3E")}
+
+/* 3) جبال الضباب */
+.scene-mountains{background:linear-gradient(180deg,#050813 0%,#0a1226 55%,#0e1c38 100%)}
+.m-ridge{position:absolute;left:0;right:0;bottom:0;background-repeat:repeat-x;background-size:100% 100%}
+.m-ridge.r1{height:58%;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 400' preserveAspectRatio='none'%3E%3Cpath d='M0,300 L110,170 L210,290 L330,130 L450,280 L560,90 L700,270 L820,150 L940,290 L1060,120 L1200,280 L1200,400 L0,400 Z' fill='%230a1327'/%3E%3C/svg%3E")}
+.m-ridge.r2{height:44%;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 400' preserveAspectRatio='none'%3E%3Cpath d='M0,330 L140,200 L260,320 L400,170 L540,320 L680,210 L820,330 L960,190 L1100,310 L1200,250 L1200,400 L0,400 Z' fill='%23101f3d'/%3E%3C/svg%3E")}
+.m-ridge.r3{height:29%;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 400' preserveAspectRatio='none'%3E%3Cpath d='M0,360 L180,240 L340,350 L520,220 L700,360 L880,250 L1060,350 L1200,290 L1200,400 L0,400 Z' fill='%23172a52'/%3E%3C/svg%3E")}
+.m-fog{position:absolute;left:-20%;bottom:8%;width:140%;height:38%;
+  background:linear-gradient(90deg,transparent,rgba(190,215,255,.07) 30%,rgba(190,215,255,.11) 50%,rgba(190,215,255,.07) 70%,transparent);
+  filter:blur(24px);animation:fogDrift 37s ease-in-out infinite alternate}
+.m-fog.f2{bottom:26%;animation-duration:53s;animation-delay:-12s;opacity:.7}
+@keyframes fogDrift{to{transform:translateX(12%)}}
+
+/* 4) غابة اليراعات */
+.scene-forest{background:linear-gradient(180deg,#061018 0%,#0a1a20 55%,#0d2426 100%)}
+.f-trees{position:absolute;left:0;right:0;bottom:0;background-repeat:repeat-x;background-size:100% 100%}
+.f-trees.t1{height:64%;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 400' preserveAspectRatio='none'%3E%3Cpath d='M0,400 L0,300 L50,300 L95,150 L140,300 L190,300 L235,110 L280,300 L330,300 L370,180 L410,300 L470,300 L520,90 L570,300 L620,300 L665,200 L710,300 L770,300 L815,120 L860,300 L910,300 L950,190 L990,300 L1050,300 L1100,140 L1150,300 L1200,300 L1200,400 Z' fill='%230b2029'/%3E%3C/svg%3E")}
+.f-trees.t2{height:48%;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 400' preserveAspectRatio='none'%3E%3Cpath d='M0,400 L0,340 L70,340 L120,210 L170,340 L240,340 L300,160 L360,340 L430,340 L480,230 L530,340 L610,340 L670,130 L730,340 L800,340 L850,220 L900,340 L980,340 L1040,170 L1100,340 L1170,340 L1200,340 L1200,400 Z' fill='%23071419'/%3E%3C/svg%3E")}
+.f-fog{position:absolute;left:-20%;bottom:12%;width:140%;height:42%;
+  background:linear-gradient(90deg,transparent,rgba(150,230,210,.06) 30%,rgba(150,230,210,.09) 50%,rgba(150,230,210,.06) 70%,transparent);
+  filter:blur(22px);animation:fogDrift 43s ease-in-out infinite alternate-reverse}
+.ff{position:absolute;width:4px;height:4px;border-radius:50%;background:#ffe9a3;
+  box-shadow:0 0 8px 2px rgba(255,233,163,.6);animation:ffFloat ease-in-out infinite}
+@keyframes ffFloat{0%,100%{transform:translate(0,0);opacity:.15}25%{opacity:.9}50%{transform:translate(26px,-30px);opacity:.4}75%{opacity:.85}}
+
+/* بطاقات اختيار المشهد */
+.scene-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.scene-card{appearance:none;border:1px solid var(--card-border);background:rgba(255,255,255,.04);
+  border-radius:12px;padding:7px 5px 8px;display:grid;gap:6px;justify-items:center;
+  color:var(--muted);font:600 11px var(--f);cursor:pointer;transition:.2s;touch-action:manipulation}
+.scene-card:hover{border-color:rgba(255,255,255,.3)}
+.scene-card.active{border-color:var(--accent);color:var(--accent);box-shadow:0 0 14px var(--accent-glow)}
+.scn-prev{width:100%;height:52px;border-radius:8px;background:#060a13;position:relative;overflow:hidden}
+.p-default{background:radial-gradient(circle at 30% 30%,rgba(134,230,207,.35),transparent 60%),radial-gradient(circle at 75% 75%,rgba(126,148,255,.3),transparent 60%),#060a13}
+.p-ocean{background:linear-gradient(180deg,#031022,#053350)}
+.p-desert{background:linear-gradient(180deg,#101642,#6b3d5b)}
+.p-mountains{background:linear-gradient(180deg,#050813,#0e1c38)}
+.p-forest{background:linear-gradient(180deg,#061018,#0d2426)}
+.p-moonlake{background:linear-gradient(180deg,#071233,#0a2140 60%,#081c36)}
+.scene-moonlake{background:linear-gradient(180deg,#040818 0%,#071233 55%,#0a2140 100%)}
+.ml-moon{position:absolute;top:13%;left:63%;width:76px;height:76px;border-radius:50%;
+  background:radial-gradient(circle at 38% 34%,#fff8e8,#e8d9b5 58%,#c9b98f);
+  box-shadow:0 0 60px 18px rgba(255,240,200,.32),0 0 150px 64px rgba(255,240,200,.1);
+  animation:mlFloat 26s ease-in-out infinite alternate}
+@keyframes mlFloat{from{transform:translateY(0)}to{transform:translateY(14px)}}
+.ml-star{position:absolute;width:2px;height:2px;border-radius:50%;background:#cfe0ff;animation:mlTw 4s infinite}
+@keyframes mlTw{0%,100%{opacity:.12}50%{opacity:.9}}
+.ml-hill{position:absolute;bottom:37%;border-radius:50% 50% 0 0;background:#02091c}
+.ml-hill.h1{left:-12%;width:55%;height:20%}
+.ml-hill.h2{right:-14%;width:60%;height:24%;background:#030d22}
+.ml-water{position:absolute;left:0;right:0;bottom:0;height:37%;overflow:hidden;
+  background:linear-gradient(180deg,#081c36 0%,#04101f 70%)}
+.ml-reflection{position:absolute;top:0;left:61.5%;width:7%;height:100%;
+  background:linear-gradient(180deg,rgba(255,238,200,.4),rgba(255,238,200,.04));
+  filter:blur(6px);animation:mlRip 7s ease-in-out infinite}
+@keyframes mlRip{0%,100%{transform:scaleX(1);opacity:.8}50%{transform:scaleX(1.3);opacity:.45}}
+.ml-shimmer{position:absolute;height:2px;width:15%;border-radius:2px;background:rgba(180,210,255,.25);
+  animation:mlShim 11s ease-in-out infinite}
+@keyframes mlShim{0%{transform:translateX(-40%);opacity:0}35%{opacity:.7}100%{transform:translateX(640%);opacity:0}}
+
+/* ───────────── الذكاء المحلي + رؤية الكاميرا ───────────── */
+.local-ai-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chip.local-ai{font-size:12px;padding:7px 12px;gap:7px}
+.chip.local-ai .dot{width:8px;height:8px;border-radius:50%;background:#58647c;transition:.3s;flex:none}
+.chip.local-ai .dot[data-state="loading"]{background:var(--warm);animation:micPulse 1.1s infinite}
+.chip.local-ai .dot[data-state="ready"]{background:var(--accent);box-shadow:0 0 10px var(--accent-glow)}
+.chip.local-ai .dot[data-state="error"],.chip.local-ai .dot[data-state="unsupported"]{background:#ff6278}
+.local-ai-state{font-size:11px;color:var(--dim);font-weight:300}
+.cam-box{display:grid;gap:9px;justify-items:center}
+.cam-box video{width:min(84vw,320px);aspect-ratio:4/3;border-radius:12px;border:1px solid var(--card-border);background:#020610;object-fit:cover}
+#camWave{width:min(84vw,320px);height:54px;border-radius:9px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)}
+.cam-stats{display:flex;gap:12px;font-size:12.5px;color:var(--text);font-weight:600}
+.cam-hint{font-size:11.5px;color:var(--accent);min-height:16px;font-weight:500}
+.cam-note{font-size:10.5px;color:var(--dim);text-align:center;line-height:1.6;font-weight:300}
+@keyframes dr1{to{transform:translate(6vmax,4vmax) scale(1.12)}}
+@keyframes dr2{to{transform:translate(-5vmax,-6vmax) scale(1.08)}}
+
+/* ───────────── شريط التحكم العلوي والأزرار ───────────── */
+.ctrls{position:fixed;top:14px;inset-inline-end:14px;z-index:10;display:flex;align-items:center;gap:7px}
+.icon-btn{
+  border:1px solid var(--card-border);
+  background:rgba(255,255,255,0.06);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  color:var(--text);
+  width:40px;height:40px;border-radius:50%;
+  display:grid;place-items:center;
+  cursor:pointer;transition:all .25s ease;
+  touch-action:manipulation;
+}
+.icon-btn:hover{border-color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.12);transform:scale(1.04)}
+.icon-btn:active{transform:scale(0.95)}
+.icon-btn.active{border-color:var(--accent);color:var(--accent);background:rgba(134,230,207,0.12);box-shadow:0 0 16px var(--accent-glow)}
+.icon-btn svg{width:18px;height:18px}
+#langBtn{width:auto;padding:0 14px;border-radius:999px;font-weight:700;font-size:13px;letter-spacing:.3px}
+
+/* ───────────── مساحات الإعلانات الذكية ───────────── */
+.ad-slot{position:relative;z-index:2;display:flex;justify-content:center;align-items:center;transition:opacity .9s ease}
+#adTop{height:48px;padding:0 10px;margin-top:2px}
+#adBottom{position:fixed;bottom:0;left:0;right:0;height:50px;padding:0 10px;z-index:6;background:linear-gradient(180deg,transparent,rgba(4,7,14,.75) 45%)}
+.ad-demo{width:100%;max-width:720px;height:100%;border:1px dashed rgba(255,255,255,.14);border-radius:10px;display:grid;place-items:center;font-size:11px;color:var(--dim);letter-spacing:.3px}
+body.running .ad-slot{opacity:0.18}
+body.night .ad-slot{opacity:0;pointer-events:none}
+
+/* ───────────── الترويسة والعنوان ───────────── */
+header{position:relative;z-index:2;padding:16px 20px 4px;display:flex;flex-direction:column;gap:3px}
+.logo-row{display:flex;align-items:center;gap:8px}
+.logo{font-size:24px;font-weight:800;letter-spacing:.3px}
+.logo b{color:var(--accent)}
+.badge-pwa{font-size:10px;padding:2px 7px;border-radius:999px;background:rgba(134,230,207,0.14);color:var(--accent);border:1px solid rgba(134,230,207,0.3);font-weight:600}
+.tag{font-size:12.5px;color:var(--muted);font-weight:300;line-height:1.7;max-width:56ch;transition:opacity 1.2s ease}
+
+/* ───────────── مسرح التنفس الرئيسي (The Breath Orb) ───────────── */
+main{position:relative;z-index:1;display:grid;place-items:center;padding:12px 16px}
+.stage{display:grid;place-items:center;gap:12px;width:100%}
+.orb-wrap{
+  position:relative;
+  width:clamp(185px,min(58vmin,calc(100dvh - 510px)),310px);
+  aspect-ratio:1;
+  cursor:pointer;
+  outline:none;
+  border-radius:50%;
+  touch-action:manipulation;
+}
+.orb-wrap:focus-visible{box-shadow:0 0 0 3px rgba(134,230,207,.55)}
+.ring{position:absolute;inset:-6%;transform:rotate(-90deg);transition:opacity .8s ease}
+.ring circle{fill:none;stroke-width:2.8}
+.rbg{stroke:rgba(255,255,255,0.08)}
+.rfg{stroke:url(#rg);stroke-linecap:round;filter:drop-shadow(0 0 8px rgba(134,230,207,.55)) hue-rotate(var(--hue,0deg));transition:filter 1.6s ease}
+
+.orb{
+  position:absolute;inset:12%;border-radius:50%;
+  background:radial-gradient(circle at 32% 28%,#ddfff6 0%,#84e2cf 22%,#3fadc9 48%,#1e5393 74%,#11244d 100%);
+  box-shadow:0 0 75px rgba(96,224,196,.32),0 0 190px rgba(126,148,255,.18),inset 0 -26px 60px rgba(0,0,0,.42),inset 0 18px 46px rgba(255,255,255,.32);
+  filter:hue-rotate(var(--hue,0deg));transition:filter 1.6s ease;
+  will-change:transform;
+}
+.orb::before{
+  content:'';position:absolute;inset:-24%;border-radius:50%;
+  background:radial-gradient(circle,rgba(134,230,207,.18),rgba(126,148,255,.12) 55%,transparent 70%);
+  filter:blur(20px);z-index:-1;
+}
+.orb-inner{position:absolute;inset:0;display:grid;place-content:center;text-align:center;gap:4px}
+#phaseWord{font-size:clamp(23px,5.6vmin,32px);font-weight:800;text-shadow:0 2px 20px rgba(0,0,0,.45);letter-spacing:.3px}
+#phaseCount{font-size:15px;color:rgba(255,255,255,.88);font-weight:400;min-height:20px;font-variant-numeric:tabular-nums}
+@keyframes idlePulse{0%,100%{transform:scale(.8)}50%{transform:scale(.875)}}
+.orb-wrap.idle .orb{animation:idlePulse 6.5s ease-in-out infinite}
+.orb-wrap.idle .ring{opacity:.5}
+
+#cycleInfo{font-size:13px;color:var(--muted);min-height:18px;font-variant-numeric:tabular-nums;transition:opacity 1.2s ease}
+.ai-msg{max-width:min(90vw,56ch);text-align:center;font-size:14.5px;font-weight:300;line-height:1.8;color:var(--warm);min-height:24px;transition:opacity .8s ease;padding:0 8px}
+.ai-msg::before{content:'✦ ';opacity:.85}
+
+/* ───────────── أشرطة الاختيار والأزرار السفلية ───────────── */
+footer{position:relative;z-index:2;display:grid;gap:10px;justify-items:center;padding:8px 18px calc(62px + env(safe-area-inset-bottom))}
+.chips{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;max-width:96vw;transition:opacity 1.2s ease}
+.chip{
+  appearance:none;border:1px solid var(--card-border);background:rgba(255,255,255,.05);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  color:#cdd6e8;border-radius:999px;padding:8px 14px;font:500 13px var(--f);
+  cursor:pointer;transition:all .22s ease;touch-action:manipulation;
+  display:inline-flex;align-items:center;gap:5px;
+}
+.chip span{opacity:.6;font-size:11px;font-weight:300}
+.chip:hover{border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.09)}
+.chip.active{border-color:rgba(134,230,207,.75);color:#eafffa;background:rgba(134,230,207,.12);box-shadow:0 0 18px var(--accent-glow)}
+.chip.ai{border-style:dashed;border-color:rgba(242,205,150,.5);color:var(--warm)}
+.chip.ai:hover{border-color:var(--warm);background:rgba(242,205,150,.1)}
+.chip.ai.active,.chip[data-p="custom"].active{border-color:var(--warm);background:rgba(242,205,150,.14);box-shadow:0 0 18px rgba(242,205,150,.18);color:#ffe9c4}
+.chip.tool-btn{background:rgba(126,148,255,0.08);border-color:rgba(126,148,255,0.22);color:#d5ddff}
+.chip.tool-btn:hover{background:rgba(126,148,255,0.16);border-color:rgba(126,148,255,0.4)}
+.chip.tool-btn.active{border-color:var(--blue);background:rgba(126,148,255,0.18);box-shadow:0 0 16px rgba(126,148,255,0.22)}
+
+/* ───────────── شريط الأدوات السريع (Audio / Pulse / Stats) ───────────── */
+.action-bar{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+
+/* ───────────── لوحة خلاط أصوات النوم والموجات الدماغية ───────────── */
+.panel-drawer{
+  display:grid;gap:12px;width:min(94vw,460px);
+  padding:14px 16px;border:1px solid var(--card-border);border-radius:18px;
+  background:rgba(13,18,32,0.92);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  box-shadow:0 16px 50px rgba(0,0,0,0.5);
+}
+.panel-drawer[hidden]{display:none}
+.drawer-header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:8px}
+.drawer-title{font-size:13.5px;font-weight:700;display:flex;align-items:center;gap:6px;color:var(--text)}
+.close-drawer{background:transparent;border:none;color:var(--muted);cursor:pointer;font-size:16px;padding:2px 6px;line-height:1}
+.close-drawer:hover{color:var(--text)}
+
+/* شبكة المسارات الصوتية في الخلاط */
+.mixer-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+@media (max-width:440px){.mixer-grid{grid-template-columns:1fr}}
+.sound-track{
+  border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:9px 11px;
+  background:rgba(255,255,255,0.03);display:grid;gap:6px;transition:border-color .2s;
+}
+.sound-track.playing{border-color:rgba(134,230,207,0.5);background:rgba(134,230,207,0.06)}
+.track-top{display:flex;justify-content:space-between;align-items:center}
+.track-label{font-size:12.5px;font-weight:600}
+.track-toggle{
+  appearance:none;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.06);
+  color:var(--muted);border-radius:999px;padding:3px 9px;font-size:11px;cursor:pointer;
+}
+.sound-track.playing .track-toggle{background:var(--accent);color:#060a13;border-color:var(--accent);font-weight:700}
+.vol-slider{width:100%;accent-color:var(--accent);cursor:pointer;height:4px}
+
+.mixer-footer{display:flex;gap:9px;align-items:center;justify-content:space-between;padding-top:4px;border-top:1px solid rgba(255,255,255,0.06)}
+.timer-select{
+  border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);color:#cdd6e8;
+  border-radius:9px;padding:5px 9px;font:500 11.5px var(--f);outline:none;cursor:pointer;
+}
+.timer-select option{background:#0d1220;color:#eef2fb}
+
+/* ───────────── أداة قياس النبض والتوتر السريع (Pulse Check) ───────────── */
+.pulse-box{display:grid;gap:12px;text-align:center;padding:10px}
+.heart-btn{
+  width:84px;height:84px;border-radius:50%;margin:0 auto;
+  border:2px solid rgba(255,100,120,0.4);background:rgba(255,100,120,0.12);
+  color:#ff788c;display:grid;place-items:center;cursor:pointer;transition:all .15s ease;
+  touch-action:manipulation;outline:none;
+}
+.heart-btn:active,.heart-btn.beat{transform:scale(1.18);box-shadow:0 0 25px rgba(255,100,120,0.5)}
+.heart-btn svg{width:36px;height:36px}
+.pulse-feedback{font-size:13px;color:var(--muted);min-height:20px}
+.bpm-val{font-size:28px;font-weight:800;color:#ff899b;font-variant-numeric:tabular-nums}
+.stress-row{display:flex;align-items:center;justify-content:center;gap:10px;font-size:12.5px;color:var(--muted)}
+.stress-slider{max-width:180px;accent-color:#ff788c}
+
+/* ───────────── لوحة الإحصائيات والرسم البياني الأسبوعي ───────────── */
+.stats-board{display:grid;gap:12px;padding:6px}
+.stats-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.stat-mini{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:8px 6px;text-align:center}
+.stat-num{font-size:20px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
+.stat-lbl{font-size:10.5px;color:var(--muted);font-weight:300}
+.week-chart{display:flex;align-items:flex-end;justify-content:space-between;gap:6px;height:90px;padding:10px 4px 4px;border-bottom:1px solid rgba(255,255,255,0.1)}
+.chart-col{flex:1;display:grid;justify-items:center;gap:4px}
+.chart-bar-wrap{width:100%;height:64px;display:flex;align-items:flex-end;justify-content:center}
+.chart-bar{width:16px;background:linear-gradient(180deg,var(--accent),var(--blue));border-radius:4px 4px 0 0;min-height:3px;transition:height .4s ease}
+.chart-day{font-size:10px;color:var(--dim)}
+
+/* ───────────── منشئ الأنماط المخصص (Custom Rhythm Builder) ───────────── */
+.builder-grid{display:grid;gap:10px}
+.builder-row{display:grid;grid-template-columns:90px 1fr 40px;align-items:center;gap:10px;font-size:12.5px}
+.builder-row input[type="range"]{accent-color:var(--warm)}
+.builder-val{font-weight:700;color:var(--warm);text-align:center;font-variant-numeric:tabular-nums}
+
+/* ───────────── رحلة النَفَس نحو النوم العميق (Guided Sleep Journey) ───────────── */
+#journeyOverlay{position:fixed;inset:0;z-index:120;display:grid;place-items:center;
+  background:radial-gradient(ellipse at 50% 30%,#0a1430 0%,#050a1c 55%,#02040c 100%);
+  opacity:0;transition:opacity 2.5s ease}
+#journeyOverlay.on{opacity:1}
+#journeyOverlay[hidden]{display:none}
+.jr-moon{position:absolute;top:15%;left:50%;margin-left:-36px;width:72px;height:72px;border-radius:50%;
+  background:radial-gradient(circle at 40% 35%,#fff6df,#e4d3ac 62%,#c8b78d);
+  box-shadow:0 0 60px 20px rgba(255,240,205,.35),0 0 150px 70px rgba(255,240,205,.1);
+  transition:transform 6s linear}
+.jr-stars{position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(1.6px 1.6px at 12% 22%,rgba(255,255,255,.9),transparent 60%),
+  radial-gradient(1.4px 1.4px at 26% 12%,rgba(255,255,255,.7),transparent 60%),
+  radial-gradient(1.8px 1.8px at 38% 30%,rgba(200,220,255,.8),transparent 60%),
+  radial-gradient(1.3px 1.3px at 55% 10%,rgba(255,255,255,.6),transparent 60%),
+  radial-gradient(1.7px 1.7px at 68% 24%,rgba(210,225,255,.8),transparent 60%),
+  radial-gradient(1.4px 1.4px at 82% 14%,rgba(255,255,255,.7),transparent 60%),
+  radial-gradient(1.6px 1.6px at 92% 32%,rgba(200,220,255,.7),transparent 60%),
+  radial-gradient(1.2px 1.2px at 8% 42%,rgba(255,255,255,.5),transparent 60%),
+  radial-gradient(1.5px 1.5px at 74% 40%,rgba(255,255,255,.6),transparent 60%);
+  animation:jrTwinkle 6s ease-in-out infinite}
+@keyframes jrTwinkle{0%,100%{opacity:.55}50%{opacity:1}}
+.jr-orb{position:absolute;width:120px;height:120px;margin:-60px 0 0 -60px;left:50%;top:38%;
+  border-radius:50%;display:none;transform:scale(.55);
+  background:radial-gradient(circle at 35% 30%,rgba(150,190,255,.45),rgba(90,120,220,.14) 60%,transparent 80%);
+  border:1px solid rgba(160,200,255,.35);box-shadow:0 0 60px rgba(120,160,255,.25)}
+.jr-text{position:absolute;bottom:15vh;left:50%;transform:translateX(-50%);width:min(88vw,560px);
+  text-align:center;z-index:2}
+.jr-phase{font-size:11px;color:rgba(200,215,255,.5);letter-spacing:.14em;margin-bottom:10px}
+.jr-sub{font-size:clamp(15px,4.2vw,20px);color:#e7eeff;font-weight:300;line-height:2.05;
+  min-height:3.4em;text-shadow:0 2px 24px rgba(0,0,0,.6);transition:opacity .8s ease}
+.jr-progress{position:absolute;bottom:5.5vh;left:50%;transform:translateX(-50%);
+  width:min(70vw,420px);height:2px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden}
+#jrBar{height:100%;width:0;background:linear-gradient(90deg,var(--accent),#7ea2ff);transition:width 1s linear}
+.jr-stop{position:absolute;top:calc(env(safe-area-inset-top,0px) + 14px);inset-inline-end:16px;
+  width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);
+  background:rgba(255,255,255,.06);color:rgba(255,255,255,.55);font-size:15px;cursor:pointer;z-index:3}
+.jr-stop:hover{background:rgba(255,255,255,.14)}
+.jr-vignette{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity 3s linear;
+  background:radial-gradient(ellipse at center,transparent 40%,rgba(0,0,0,.92) 100%)}
+
+/* ───────────── عيادة الأرق + نظام الترقية الصادق (Insomnia & Honest Pro) ───────────── */
+body[data-theme="insomnia"]{--hue:-125deg}
+body.insomnia-mode .a1{background:radial-gradient(circle,#3a1a0a,transparent 70%)}
+body.insomnia-mode .a2{background:radial-gradient(circle,#281206,transparent 70%)}
+body.insomnia-mode .a3{background:radial-gradient(circle,rgba(255,190,120,.14),transparent 70%)}
+body.insomnia-mode .a4{background:radial-gradient(circle,#2b1505,transparent 70%)}
+.insomnia-banner{border:1px solid rgba(245,192,86,.25);background:rgba(245,192,86,.07);border-radius:12px;padding:9px 11px;font-size:12px;line-height:1.7;color:#e8dcc4}
+.cbt-steps{display:grid;gap:8px}
+.cbt-step{display:flex;gap:9px;align-items:flex-start;font-size:12px;color:var(--muted);line-height:1.7}
+.insomnia-num{flex:none;width:22px;height:22px;border-radius:50%;background:rgba(245,192,86,.15);color:var(--gold);font-weight:700;display:grid;place-items:center;font-size:11.5px;margin-top:2px}
+.pro-badge-btn{border:1px solid rgba(245,192,86,.45);background:rgba(245,192,86,.12);color:var(--gold);
+  font:700 10.5px var(--f);padding:3px 9px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;transition:.2s}
+.pro-badge-btn:hover{transform:scale(1.05);background:rgba(245,192,86,.22)}
+.pro-badge-btn.unlocked{background:linear-gradient(135deg,#f5c056,#ff9800);color:#060a13;border-color:transparent}
+body.is-pro .ad-slot{display:none!important}
+.sound-track.pro-locked{border-color:rgba(245,192,86,.25);background:rgba(245,192,86,.03)}
+.tag-pro{font-size:9px;padding:1px 5px;border-radius:4px;background:rgba(245,192,86,.2);color:var(--gold);font-weight:700;margin-inline-start:4px}
+.perk-list{display:grid;gap:8px}
+.perk-item{display:flex;align-items:flex-start;gap:9px;font-size:12.5px;color:#dfe6f5;line-height:1.6}
+.perk-item svg{width:14px;height:14px;flex:none;color:var(--gold);margin-top:2px}
+.tip-options{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.tip-opt{border:1px solid var(--card-border);border-radius:12px;padding:10px 6px;display:grid;gap:4px;justify-items:center;cursor:pointer;transition:.2s;background:rgba(255,255,255,.03);touch-action:manipulation}
+.tip-opt:hover{border-color:rgba(255,255,255,.3)}
+.tip-opt.active{border-color:var(--gold);box-shadow:0 0 14px rgba(245,192,86,.25)}
+.tip-amount{font-weight:800;font-size:15px;color:var(--gold)}
+.tip-label{font-size:10.5px;color:var(--muted);text-align:center}
+
+/* ───────────── وضع النوم الليلي الحالك (Night Mode) ───────────── */
+body.night{--bg:#020408}
+body.night .tag,body.night .chips,body.night .action-bar,body.night .meta,body.night .logo{opacity:.12;pointer-events:none}
+body.night #cycleInfo{opacity:.18}
+body.night .aurora{opacity:.08}
+body.night .orb-wrap{filter:brightness(.75)}
+body.night #adTop,body.night #adBottom{opacity:0;pointer-events:none}
+
+/* ───────────── النافذة المنبثقة العامة (Modal Sheets) ───────────── */
+.sheet{
+  position:fixed;inset:0;z-index:20;display:grid;place-items:center;padding:18px;
+  background:rgba(4,7,14,.72);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  opacity:0;pointer-events:none;transition:opacity .25s ease;
+}
+.sheet.open{opacity:1;pointer-events:auto}
+.sheet-card{
+  width:min(92vw,440px);border-radius:20px;border:1px solid var(--card-border);
+  background:rgba(13,18,32,.96);padding:22px;display:grid;gap:13px;
+  transform:translateY(14px);transition:transform .25s ease;box-shadow:0 24px 80px rgba(0,0,0,.6);
+}
+.sheet.open .sheet-card{transform:none}
+.sheet h3{font-size:17px;font-weight:700}
+.sheet p{font-size:13px;color:var(--muted);font-weight:300;line-height:1.8}
+.input-wrap{position:relative;display:flex;align-items:center}
+.sheet input[type="text"]{
+  width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);
+  color:var(--text);padding:12px 14px;padding-inline-end:44px;font:400 14px var(--f);outline:none;transition:.2s;
+}
+.sheet input[type="text"]:focus{border-color:var(--accent)}
+.mic-btn{
+  position:absolute;inset-inline-end:8px;background:transparent;border:none;
+  color:var(--muted);width:32px;height:32px;border-radius:50%;cursor:pointer;
+  display:grid;place-items:center;transition:.2s;
+}
+.mic-btn.listening{color:#ff6278;animation:micPulse 1.2s infinite}
+@keyframes micPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.25)}}
+.sheet .btn-row{display:flex;gap:8px}
+.btn-primary{
+  flex:1;border:none;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--blue));
+  color:#060a13;font:700 13.5px var(--f);padding:12px;cursor:pointer;transition:.2s;touch-action:manipulation;
+}
+.btn-primary:disabled{opacity:.55;cursor:default}
+.btn-secondary{
+  border:1px solid rgba(255,255,255,.14);background:transparent;color:var(--muted);border-radius:12px;
+  padding:12px 16px;font:400 13px var(--f);cursor:pointer;touch-action:manipulation;
+}
+.btn-secondary.active{border-color:var(--accent);color:var(--accent);box-shadow:0 0 12px var(--accent-glow)}
+
+/* التذييل والمعلومات */
+.meta{display:flex;align-items:center;gap:6px;max-width:94vw;font-size:11.5px;color:var(--dim);font-weight:300}
+.meta .dot{opacity:.4}
+
+/* الاستجابة للشاشات الصغيرة */
+@media (max-width:520px){
+  header{padding:12px 16px 2px}
+  .logo{font-size:21px}
+  .tag{font-size:11.5px}
+  .chip{padding:7px 11px;font-size:12px}
+  .ctrls{top:10px;inset-inline-end:10px;gap:5px}
+  .icon-btn{width:36px;height:36px}
+  #langBtn{padding:0 11px;font-size:12px}
+}
+@media (prefers-reduced-motion:reduce){.aurora,.orb-wrap.idle .orb,.o-wave,.o-bub,.o-rays,.d-moon,.m-fog,.f-fog,.ff{animation:none}}
+@media (max-height:680px){.tag{display:none}.ai-msg{font-size:13px;min-height:18px}}
+@media (max-height:540px){.ai-msg,.meta,#adTop{display:none}}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2188601412548469"
+     crossorigin="anonymous"></script>
+</head>
+<body data-scene="default">
+
+<!-- خلفيات التأمّل: مشاهد مرسومة بالكود (تخفت/تظهر بنعومة عبر data-scene) -->
+<div class="scene scene-ocean" aria-hidden="true">
+  <div class="pz" style="--d:3"><div class="o-rays"></div><div class="o-rays r2"></div><div class="o-rays r3"></div></div>
+  <div class="pz" style="--d:9">
+    <div class="o-bub" style="left:12%;width:6px;height:6px;animation-duration:19s;animation-delay:-3s"></div>
+    <div class="o-bub" style="left:28%;width:4px;height:4px;animation-duration:26s;animation-delay:-13s"></div>
+    <div class="o-bub" style="left:47%;width:7px;height:7px;animation-duration:22s;animation-delay:-8s"></div>
+    <div class="o-bub" style="left:63%;width:5px;height:5px;animation-duration:31s;animation-delay:-21s"></div>
+    <div class="o-bub" style="left:79%;width:4px;height:4px;animation-duration:24s;animation-delay:-16s"></div>
+    <div class="o-bub" style="left:90%;width:6px;height:6px;animation-duration:28s;animation-delay:-5s"></div>
+  </div>
+  <div class="pz" style="--d:17"><div class="o-wave w1"></div><div class="o-wave w2"></div><div class="o-wave w3"></div></div>
+</div>
+<div class="scene scene-desert" aria-hidden="true">
+  <div class="pz" style="--d:3"><div class="d-moon"></div></div>
+  <div class="pz" style="--d:8"><div class="d-dune g1"></div></div>
+  <div class="pz" style="--d:13"><div class="d-dune g2"></div></div>
+  <div class="pz" style="--d:19"><div class="d-dune g3"></div></div>
+</div>
+<div class="scene scene-mountains" aria-hidden="true">
+  <div class="pz" style="--d:4"><div class="m-ridge r1"></div></div>
+  <div class="pz" style="--d:9"><div class="m-ridge r2"></div><div class="m-fog"></div></div>
+  <div class="pz" style="--d:16"><div class="m-ridge r3"></div><div class="m-fog f2"></div></div>
+</div>
+<div class="scene scene-moonlake" aria-hidden="true">
+  <div class="pz" style="--d:3">
+    <div class="ml-star" style="left:12%;top:18%;animation-duration:3.4s"></div>
+    <div class="ml-star" style="left:28%;top:9%;animation-duration:4.6s;animation-delay:-1s"></div>
+    <div class="ml-star" style="left:44%;top:22%;animation-duration:5.2s;animation-delay:-2s"></div>
+    <div class="ml-star" style="left:70%;top:12%;animation-duration:3.8s;animation-delay:-1.5s"></div>
+    <div class="ml-star" style="left:86%;top:26%;animation-duration:4.2s;animation-delay:-.5s"></div>
+    <div class="ml-star" style="left:92%;top:8%;animation-duration:5.6s;animation-delay:-3s"></div>
+    <div class="ml-moon"></div>
+  </div>
+  <div class="pz" style="--d:8"><div class="ml-hill h1"></div><div class="ml-hill h2"></div></div>
+  <div class="pz" style="--d:15">
+    <div class="ml-water">
+      <div class="ml-reflection"></div>
+      <div class="ml-shimmer" style="top:22%;left:8%;animation-duration:11s"></div>
+      <div class="ml-shimmer" style="top:48%;left:28%;animation-duration:9s;animation-delay:-4s"></div>
+      <div class="ml-shimmer" style="top:70%;left:55%;animation-duration:13s;animation-delay:-7s"></div>
+      <div class="ml-shimmer" style="top:34%;left:70%;animation-duration:10s;animation-delay:-2s"></div>
+    </div>
+  </div>
+</div>
+<div class="scene scene-forest" aria-hidden="true">
+  <div class="pz" style="--d:4"><div class="f-trees t1"></div></div>
+  <div class="pz" style="--d:9"><div class="f-trees t2"></div><div class="f-fog"></div></div>
+  <div class="pz" style="--d:20">
+    <div class="ff" style="left:18%;top:58%;animation-duration:11s;animation-delay:-2s"></div>
+    <div class="ff" style="left:34%;top:70%;animation-duration:14s;animation-delay:-6s"></div>
+    <div class="ff" style="left:55%;top:62%;animation-duration:9s;animation-delay:-1s"></div>
+    <div class="ff" style="left:71%;top:74%;animation-duration:13s;animation-delay:-9s"></div>
+    <div class="ff" style="left:86%;top:60%;animation-duration:16s;animation-delay:-4s"></div>
+    <div class="ff" style="left:44%;top:80%;animation-duration:12s;animation-delay:-11s"></div>
+  </div>
+</div>
+<canvas id="stars" aria-hidden="true"></canvas>
+<div class="sky" aria-hidden="true">
+  <div class="pz" style="--d:3"><div class="aurora a1"></div><div class="aurora a2"></div></div>
+  <div class="pz" style="--d:9"><div class="aurora a3"></div><div class="aurora a4"></div></div>
+</div>
+<div class="vignette" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- إعلان علوي اختياري متناسق مع التجربة -->
+<div class="ad-slot" id="adTop" aria-hidden="true"></div>
+
+<!-- أزرار الإعدادات العلوية السريعة -->
+<div class="ctrls">
+  <!-- تبديل الصوت/النغمات -->
+  <button class="icon-btn active" id="soundBtn" aria-label="تبديل الصوت" title="نغمات التنبيه">
+    <svg id="icSoundOn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.4 5.6a9 9 0 0 1 0 12.8"/></svg>
+    <svg id="icSoundOff" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M11 5 6 9H2v6h4l5 4V5z"/><line x1="22" y1="9" x2="16" y2="15"/><line x1="16" y1="9" x2="22" y2="15"/></svg>
+  </button>
+  <!-- تبديل الاهتزاز الحسي (Haptic Feedback) -->
+  <button class="icon-btn active" id="hapticBtn" aria-label="الاهتزاز الحسي" title="الاهتزاز اللمسي مع الأنفاس">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/><path d="M2 8v8"/><path d="M22 8v8"/></svg>
+  </button>
+  <!-- تبديل التوجيه الصوتي اللفظي (Voice Prompts) -->
+  <button class="icon-btn" id="voiceBtn" aria-label="التوجيه الصوتي" title="الإرشاد الصوتي اللفظي">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+  </button>
+  <!-- دعم التطبيق -->
+  <button class="icon-btn" id="openTipBtn" aria-label="دعم التطبيق" title="دعم التطبيق">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+  </button>
+  <!-- مراقبة التنفس بالكاميرا (AI Biofeedback) -->
+  <button class="icon-btn" id="camBtn" aria-label="مراقبة التنفس بالكاميرا" title="مراقبة التنفس بالكاميرا">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+  </button>
+  <!-- خلفية التأمّل -->
+  <button class="icon-btn" id="sceneBtn" aria-label="خلفية التأمّل" title="خلفية التأمّل">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+  </button>
+  <!-- وضع النوم الليلي الحالك -->
+  <button class="icon-btn" id="nightBtn" aria-label="وضع النوم الليلي" title="تخفيت الإضاءة للنوم">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+  </button>
+  <!-- تبديل اللغة -->
+  <button class="icon-btn" id="langBtn" aria-label="Switch Language" title="Language">EN</button>
+</div>
+
+<header>
+  <div class="logo-row">
+    <div class="logo">نَفَس<b>.</b></div>
+    <span class="badge-pwa" id="pwaBadge">ملف واحد · يعمل أوفلاين</span>
+    <button class="pro-badge-btn" id="proHeaderBtn" title="نَفَس Pro"><span>★</span><span id="proBadgeText">نَفَس PRO</span></button>
+    <span class="tag-pro" id="proStatusPill">FREE</span>
+  </div>
+  <div class="tag" id="appTag">الحاجة الوحيدة التي لا يستطيع العالم العيش بدونها — وكل ما سواها تفاصيل.</div>
+</header>
+
+<main>
+  <div class="stage">
+    <!-- كرة التنفس التفاعلية ذات الحلقات المضيئة -->
+    <div class="orb-wrap idle" id="orbWrap" role="button" tabindex="0" aria-label="اضغط لبدء تمرين التنفس">
+      <svg class="ring" viewBox="0 0 300 300" aria-hidden="true">
+        <defs>
+          <linearGradient id="rg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#86e6cf"/>
+            <stop offset="1" stop-color="#7e94ff"/>
+          </linearGradient>
+        </defs>
+        <circle class="rbg" cx="150" cy="150" r="140"/>
+        <circle class="rfg" id="ringFg" cx="150" cy="150" r="140"/>
+      </svg>
+      <div class="orb" id="orb">
+        <div class="orb-inner">
+          <div id="phaseWord" aria-live="polite">تنفّس</div>
+          <div id="phaseCount"></div>
+        </div>
+      </div>
+    </div>
+    <div id="cycleInfo"></div>
+    <div class="ai-msg" id="aiMsg" aria-live="polite"></div>
+  </div>
+</main>
+
+<footer>
+  <!-- أنماط التنفس العلمية المعتمدة -->
+  <div class="chips" id="patternChips">
+    <button class="chip" data-p="insomnia" title="بروتوكول هارفارد 4-7-8 لعلاج الأرق">طرد الأرق <span>4·7·8 ×30</span></button>
+    <button class="chip active" data-p="calm" title="استرخاء ونوم 4·7·8">هدوء <span>4·7·8</span></button>
+    <button class="chip" data-p="box" title="تركيز وتوازن 4·4·4·4">توازن <span>4·4·4·4</span></button>
+    <button class="chip" data-p="coherent" title="رنين متماسك 5.5·5.5 لضبط تقلب نبضات القلب">تناغم <span>5.5·5.5</span></button>
+    <button class="chip" data-p="sigh" title="تنهيدة فسيولوجية لتفريغ التوتر الفوري">تنهيدة <span>3+1·7</span></button>
+    <button class="chip" data-p="energy" title="تنشيط ويقظة 5·1·2">نشاط <span>5·1·2</span></button>
+    <button class="chip" data-p="custom" id="customChip" hidden>ليّا <span></span></button>
+    <button class="chip ai" id="aiBtn">✦ مدربي الذكي</button>
+  </div>
+
+  <!-- شريط الأدوات الموسعة: خلاط أصوات النوم، فاحص النبض، منشئ الأنماط، والإحصائيات -->
+  <div class="action-bar">
+    <button class="chip tool-btn" id="openMixerBtn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      <span id="mixerBtnLbl">خلاط أصوات النوم</span>
+    </button>
+    <button class="chip tool-btn" id="openPulseBtn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      <span id="pulseBtnLbl">فاحص النبض والتوتر</span>
+    </button>
+    <button class="chip tool-btn" id="openBuilderBtn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      <span id="builderBtnLbl">منشئ نمط مخصص</span>
+    </button>
+    <button class="chip tool-btn" id="openStatsBtn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      <span id="statsBtnLbl">سجل الأسبوع</span>
+    </button>
+    <button class="chip tool-btn" id="openInsomniaBtn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <span id="insomniaBtnLbl">عيادة الأرق 🌙</span>
+    </button>
+  </div>
+
+  <!-- لوحة خلاط أصوات النوم المتعدد (Multi-Track Procedural Sound Mixer) -->
+  <div id="mixerPanel" class="panel-drawer" hidden>
+    <div class="drawer-header">
+      <div class="drawer-title">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        <span id="mixerHeadTitle">خلاط أصوات النوم والموجات الدماغية</span>
+      </div>
+      <button class="close-drawer" id="closeMixerBtn" aria-label="إغلاق">✕</button>
+    </div>
+
+    <!-- شبكة الأصوات الستة المولدة كودياً -->
+    <div class="mixer-grid">
+      <!-- 1. المطر الهادئ -->
+      <div class="sound-track" data-track="rain">
+        <div class="track-top">
+          <span class="track-label" id="lblRain">مطر هادئ</span>
+          <button class="track-toggle" data-t="rain">تشغيل</button>
+        </div>
+        <input type="range" class="vol-slider" min="0" max="100" value="70" data-vol="rain">
+      </div>
+
+      <!-- 2. أمواج البحر -->
+      <div class="sound-track" data-track="ocean">
+        <div class="track-top">
+          <span class="track-label" id="lblOcean">أمواج بحر</span>
+          <button class="track-toggle" data-t="ocean">تشغيل</button>
+        </div>
+        <input type="range" class="vol-slider" min="0" max="100" value="65" data-vol="ocean">
+      </div>
+
+      <!-- 3. ضجيج بني عميق -->
+      <div class="sound-track" data-track="brown">
+        <div class="track-top">
+          <span class="track-label" id="lblBrown">ضجيج بني (عازل)</span>
+          <button class="track-toggle" data-t="brown">تشغيل</button>
+        </div>
+        <input type="range" class="vol-slider" min="0" max="100" value="60" data-vol="brown">
+      </div>
+
+      <!-- 4. رنين أوم 136.1Hz -->
+      <div class="sound-track" data-track="om">
+        <div class="track-top">
+          <span class="track-label" id="lblOm">رنين عميق (136.1Hz)</span>
+          <button class="track-toggle" data-t="om">تشغيل</button>
+        </div>
+        <input type="range" class="vol-slider" min="0" max="100" value="50" data-vol="om">
+      </div>
+
+      <!-- 5. موجات ثيتا ثنائية الأذن (Binaural Theta 6Hz) -->
+      <div class="sound-track" data-track="theta">
+        <div class="track-top">
+          <span class="track-label" id="lblTheta">موجات ثيتا (استرخاء)</span>
+          <button class="track-toggle" data-t="theta">تشغيل</button>
+        </div>
+        <input type="range" class="vol-slider" min="0" max="100" value="45" data-vol="theta">
+      </div>
+
+      <!-- 6. تردد السلام 528Hz -->
+      <div class="sound-track" data-track="solfeggio">
+        <div class="track-top">
+          <span class="track-label" id="lblSolfeggio">تردد السلام (528Hz)</span>
+          <button class="track-toggle" data-t="solfeggio">تشغيل</button>
+        </div>
+        <input type="range" class="vol-slider" min="0" max="100" value="40" data-vol="solfeggio">
+      </div>
+
+      <!-- ══ مسارات PRO الحصرية ══ -->
+      <div class="sound-track pro-locked" data-track="fire">
+        <div class="track-top">
+          <span class="track-label" id="lblFire">موقد نار دافئ <span class="tag-pro">PRO</span></span>
+          <button class="track-toggle" data-t="fire">🔒 فتح</button>
+        </div>
+        <input type="range" class="vol-slider" min="0" max="100" value="45" data-vol="fire">
+      </div>
+      <div class="sound-track pro-locked" data-track="delta">
+        <div class="track-top">
+          <span class="track-label" id="lblDelta">دلتا نوم عميق (2Hz) <span class="tag-pro">PRO</span></span>
+          <button class="track-toggle" data-t="delta">🔒 فتح</button>
+        </div>
+        <input type="range" class="vol-slider" min="0" max="100" value="35" data-vol="delta">
+      </div>
+      <div class="sound-track pro-locked" data-track="pure432">
+        <div class="track-top">
+          <span class="track-label" id="lbl432">رنين نقي 432Hz <span class="tag-pro">PRO</span></span>
+          <button class="track-toggle" data-t="pure432">🔒 فتح</button>
+        </div>
+        <input type="range" class="vol-slider" min="0" max="100" value="40" data-vol="pure432">
+      </div>
+    </div>
+
+    <!-- أسفل الخلاط: مؤقت الإيقاف التلقائي ومستوى الصوت العام -->
+    <div class="mixer-footer">
+      <div style="display:flex;align-items:center;gap:6px">
+        <span style="font-size:11.5px;color:var(--muted)" id="lblTimer">المؤقّت:</span>
+        <select id="ambTimer" class="timer-select" aria-label="الإيقاف التلقائي">
+          <option value="0">بدون مؤقّت</option>
+          <option value="15">15 دقيقة</option>
+          <option value="30">30 دقيقة</option>
+          <option value="45">45 دقيقة</option>
+          <option value="60">60 دقيقة</option>
+          <option value="120" data-pro="1">🔒 ساعتان (PRO)</option>
+          <option value="240" data-pro="1">🔒 4 ساعات (PRO)</option>
+          <option value="480" data-pro="1">🔒 8 ساعات طوال الليل (PRO)</option>
+        </select>
+      </div>
+      <button class="btn-secondary" id="stopAllAmbBtn" style="padding:4px 10px;font-size:11.5px">إيقاف الكل</button>
+    </div>
+  </div>
+
+  <div class="meta">
+    <span id="quickStats">0 نفَسة اليوم</span>
+    <span class="dot">·</span>
+    <span id="offlineNotice">ملف واحد مستقل · توليد صوتي بالكامل</span>
+  </div>
+</footer>
+
+<!-- إعلان سفلي ثابت هادئ -->
+<div class="ad-slot" id="adBottom" aria-hidden="true"></div>
+
+<!-- ──────── نافذة المدرب الذكي مع دعم الإدخال الصوتي ──────── -->
+<div class="sheet" id="aiSheet" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="sheet-card">
+    <h3 id="aiSheetH">نَفَسٌ على مقاسك</h3>
+    <p id="aiSheetP">أخبر مدربك الذكي بما تشعر به الآن (توتر، أرق، غضب، تشتت، مقابلة عمل)، وسيصمم لك إيقاع تنفس علمي مخصص مع عبارة هادفة.</p>
+    <div class="local-ai-row">
+      <button class="chip local-ai" id="localAiBtn" type="button">
+        <span class="dot" id="localAiDot" data-state="off"></span>
+        <span id="localAiL">⚡ ذكاء محلي داخل جهازك</span>
+        <span id="localAiPct" hidden></span>
+      </button>
+      <span class="local-ai-state" id="localAiState"></span>
+    </div>
+    <div class="input-wrap">
+      <input id="moodInput" type="text" maxlength="140" placeholder="مثال: متوتر قبل امتحان مهم ولا أستطيع التركيز…" autocomplete="off">
+      <button class="mic-btn" id="micBtn" title="تحدث للمدرب" aria-label="تحدث صوتياً">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+      </button>
+    </div>
+    <div class="btn-row">
+      <button class="btn-primary" id="moodGo">وصّف تنفّسي</button>
+      <button class="btn-secondary" id="moodSkip">ليس الآن</button>
+    </div>
+  </div>
+</div>
+
+<!-- ──────── نافذة فاحص النبض والتوتر السريع (Pulse Check) ──────── -->
+<div class="sheet" id="pulseSheet" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="sheet-card pulse-box">
+    <h3 id="pulseTitle">فاحص النبض ومستوى التوتر</h3>
+    <p id="pulseDesc">انقر على القلب باستمرار مع كل نبضة تشعر بها في معصمك أو عنقك لحساب معدل ضربات قلبك.</p>
+    <button class="heart-btn" id="heartTapBtn" aria-label="انقر مع كل نبضة قلب">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    </button>
+    <div class="bpm-val" id="bpmDisplay">-- BPM</div>
+    <div class="pulse-feedback" id="pulseFeedback">انقر 4 مرات متتالية لبدء القياس</div>
+    
+    <div class="stress-row">
+      <span id="lblStress">مستوى التوتر الآن:</span>
+      <input type="range" class="stress-slider" id="stressSlider" min="1" max="10" value="5">
+      <span id="stressVal" style="font-weight:700">5 / 10</span>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-primary" id="savePulseBtn">حفظ وبدء جلسة هادئة</button>
+      <button class="btn-secondary" id="closePulseBtn">إغلاق</button>
+    </div>
+  </div>
+</div>
+
+<!-- ──────── نافذة منشئ نمط التنفس المخصص (Custom Builder) ──────── -->
+<div class="sheet" id="builderSheet" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="sheet-card">
+    <h3 id="bldTitle">تصميم إيقاع تنفس مخصص</h3>
+    <p id="bldDesc">حدد ثواني كل مرحلة بنفسك كما يوصي طبيبك أو مدربك الخاص.</p>
+    
+    <div class="builder-grid">
+      <div class="builder-row">
+        <span id="bldIn">الشهيق</span>
+        <input type="range" id="bldInSlider" min="2" max="10" value="4">
+        <span class="builder-val" id="bldInVal">4 ث</span>
+      </div>
+      <div class="builder-row">
+        <span id="bldHold1">حبس النفس</span>
+        <input type="range" id="bldHold1Slider" min="0" max="10" value="4">
+        <span class="builder-val" id="bldHold1Val">4 ث</span>
+      </div>
+      <div class="builder-row">
+        <span id="bldOut">الزفير</span>
+        <input type="range" id="bldOutSlider" min="2" max="12" value="6">
+        <span class="builder-val" id="bldOutVal">6 ث</span>
+      </div>
+      <div class="builder-row">
+        <span id="bldHold2">حبس الزفير</span>
+        <input type="range" id="bldHold2Slider" min="0" max="10" value="0">
+        <span class="builder-val" id="bldHold2Val">0 ث</span>
+      </div>
+      <div class="builder-row">
+        <span id="bldCycles">الدورات</span>
+        <input type="range" id="bldCyclesSlider" min="2" max="15" value="5">
+        <span class="builder-val" id="bldCyclesVal">5</span>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-primary" id="applyCustomBtn">تطبيق وحفظ</button>
+      <button class="btn-secondary" id="closeBuilderBtn">إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<!-- ──────── نافذة سجل الإنجازات الأسبوعي (Weekly Stats & Tracker) ──────── -->
+<div class="sheet" id="statsSheet" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="sheet-card stats-board">
+    <h3 id="statsTitle">سجل اليقظة والأنفاس</h3>
+    <p id="statsDesc">استمرارية التنفس اليومي تعيد ضبط جهازك العصبي بالكامل.</p>
+    
+    <div class="stats-cards">
+      <div class="stat-mini">
+        <div class="stat-num" id="streakStat">0</div>
+        <div class="stat-lbl" id="lblStreak">أيام متتالية 🔥</div>
+      </div>
+      <div class="stat-mini">
+        <div class="stat-num" id="todayBreathsStat">0</div>
+        <div class="stat-lbl" id="lblTodayBr">أنفاس اليوم</div>
+      </div>
+      <div class="stat-mini">
+        <div class="stat-num" id="totalBreathsStat">0</div>
+        <div class="stat-lbl" id="lblTotalBr">إجمالي الأنفاس</div>
+      </div>
+    </div>
+
+    <div style="font-size:12px;color:var(--muted);margin-top:4px" id="lblWeeklyActivity">نشاط آخر 7 أيام:</div>
+    <div class="week-chart" id="weekChart">
+      <!-- تُولد أعمدة الأيام ديناميكياً -->
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-primary" id="closeStatsBtn">متابعة التنفس</button>
+      <button class="btn-secondary" id="resetDataBtn" style="color:#ff7a88">مسح السجل</button>
+    </div>
+  </div>
+</div>
+
+<!-- لوحة مراقبة التنفس بالكاميرا (AI Biofeedback) -->
+<div id="camPanel" class="panel-drawer" hidden>
+  <div class="drawer-header">
+    <div class="drawer-title">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+      <span id="camHeadTitle">مراقبة التنفس بالكاميرا</span>
+    </div>
+    <button class="close-drawer" id="closeCamBtn" aria-label="إغلاق">✕</button>
+  </div>
+  <div class="cam-box">
+    <video id="camVideo" muted playsinline autoplay></video>
+    <canvas id="camWave" width="320" height="54"></canvas>
+    <div class="cam-stats"><span id="camBpm">—</span></div>
+    <div class="cam-hint" id="camHint"></div>
+    <p class="cam-note" id="camNote">وجّه الكاميرا لصدرتك في إضاءة معتدلة — تُحلَّل الحركة داخل جهازك فقط ولا يُرفع أي فيديو.</p>
+  </div>
+</div>
+
+<!-- ════════════ عيادة النوم والأرق (Insomnia Clinic) ════════════ -->
+<div class="sheet" id="insomniaSheet" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="sheet-card">
+    <h3 id="insomniaModalH">عيادة النوم والأرق 🌙</h3>
+    <span id="insomniaModalSub" style="font-size:11.5px;color:var(--muted)">طريقة هارفارد 4-7-8 · استرخاء عضلي · عدّ تنويمي</span>
+    <div class="insomnia-banner" id="insomniaBannerTxt"><b>طارد التفكير الزائد:</b> 30 دورة من إيقاع 4-7-8 تبطئ نبضك وتقود دماغك برفق نحو النوم العميق.</div>
+    <div class="cbt-steps">
+      <div class="cbt-step"><span class="insomnia-num">١</span><span id="cbtStep1"><b>إسقاط الفك واللسان:</b> الشد العصبي اللاواعي يتركز في عضلات الفك؛ أرخِ الفكين فيهدأ العقل فوراً.</span></div>
+      <div class="cbt-step"><span class="insomnia-num">٢</span><span id="cbtStep2"><b>حماية الميلاتونين:</b> فعّل الوضع الليلي ليخفت الإضاءة لأطياف عنبرية خالية من الضوء الأزرق.</span></div>
+      <div class="cbt-step"><span class="insomnia-num">٣</span><span id="cbtStep3"><b>قاعدة الـ 20 دقيقة:</b> إن لم يأتك النعاس فلا تقاومه — دع الأصوات تعمل وركّز على ثقل ذراعيك.</span></div>
+    </div>
+    <div style="display:grid;gap:7px">
+      <button class="btn-primary" id="startInsomniaTherapyBtn">✨ تشغيل جلسة النوم الشاملة</button>
+      <button class="btn-primary" id="startJourneyBtn" style="background:linear-gradient(135deg,#7ea2ff,#5b7bd5)">🎧 رحلة النَفَس نحو النوم العميق (6 دقائق)</button>
+      <button class="btn-secondary" id="toggleHypnoticCountdownBtn">🔢 جلسة مع العدّ التنويمي (100 ➔ 0)</button>
+      <button class="btn-secondary" id="closeInsomniaBtn">إغلاق</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ نافذة الترقية الصادقة (Honest Pro) ════════════ -->
+<div class="sheet" id="proSheet" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="sheet-card">
+    <h3 id="proTitle">الترقية إلى نَفَس Pro 👑</h3>
+    <span id="proSub" style="font-size:11.5px;color:var(--gold)">دفعة واحدة · بدون اشتراك · تدوم للأبد</span>
+    <div class="perk-list">
+      <div class="perk-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span id="perk1">إخفاء جميع الإعلانات نهائياً من كل الشاشات.</span></div>
+      <div class="perk-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span id="perk2">أصوات حصرية: موقد النار، موجات دلتا، رنين 432Hz.</span></div>
+      <div class="perk-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span id="perk3">مؤقت نوم حتى 8 ساعات متواصلة طوال الليل.</span></div>
+      <div class="perk-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span id="perk4">شارة PRO الذهبية ودعم استمرار التطبيق المستقل.</span></div>
+    </div>
+    <div style="display:grid;gap:6px">
+      <button class="btn-primary" id="buyProBtn" style="background:linear-gradient(135deg,#f5c056,#ff9800);color:#060a13">شراء الترخيص مدى الحياة ($2.99)</button>
+      <button class="btn-secondary" id="trialBtn">🎁 تجربة Pro مجاناً 24 ساعة — بدون بطاقة وبدون إعلانات مزيفة</button>
+    </div>
+    <p id="proNote" style="font-size:10.5px;color:var(--dim)">بعد الدفع على PayPal أرسل لي اسمك وسيصلك كود التفعيل — أدخله هنا ليفتح Pro للأبد.</p>
+    <div style="border-top:1px solid rgba(255,255,255,.08);padding-top:10px;display:grid;gap:6px">
+      <span id="haveKey" style="font-size:11.5px;color:var(--muted)">لديك كود ترخيص؟</span>
+      <div style="display:flex;gap:6px">
+        <input type="text" id="licenseKeyInput" placeholder="مثال: NAFAS-PRO-2026" style="text-transform:uppercase;flex:1;border-radius:12px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);color:var(--text);padding:12px 14px;font:400 14px var(--f);outline:none">
+        <button class="btn-secondary" id="activateKeyBtn" style="white-space:nowrap;font-weight:700">تفعيل</button>
+      </div>
+      <div id="licenseFeedback" style="font-size:11px;min-height:16px"></div>
+    </div>
+    <button class="btn-secondary" id="closeProBtn">إغلاق</button>
+  </div>
+</div>
+
+<!-- ════════════ صندوق الدعم (Tip Jar) ════════════ -->
+<div class="sheet" id="tipSheet" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="sheet-card">
+    <h3 id="tipTitle">☕ هل شعرت بالهدوء؟</h3>
+    <span id="tipSub" style="font-size:11.5px;color:var(--gold)">دعم بسيط يضمن استمرار نَفَس مستقلاً وبدون إعلانات</span>
+    <p id="tipDesc" style="font-size:12.5px;color:var(--muted);font-weight:300;line-height:1.8">نَفَس صُنع بحب ليساعد الجميع على التنفس والنوم بسلام — مساهمتك الصغيرة تضمن تطويره الدائم.</p>
+    <div class="tip-options">
+      <div class="tip-opt" data-amt="2"><div class="tip-amount">$2</div><div class="tip-label" id="tipLblCoffee">قهوة دافئة ☕</div></div>
+      <div class="tip-opt active" data-amt="5"><div class="tip-amount">$5</div><div class="tip-label" id="tipLblSuper">دعم كريم 🌟</div></div>
+      <div class="tip-opt" data-amt="10"><div class="tip-amount">$10</div><div class="tip-label" id="tipLblAngel">راعي سلام 🕊️</div></div>
+    </div>
+    <div style="display:grid;gap:6px">
+      <button class="btn-primary" id="sendTipBtn" style="background:linear-gradient(135deg,#f5c056,#ff9800);color:#060a13">إرسال الدعم عبر PayPal</button>
+      <button class="btn-secondary" id="closeTipBtn">ربما لاحقاً 🙏</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ رحلة النَفَس نحو النوم العميق (Guided Sleep Journey Overlay) ════════════ -->
+<div id="journeyOverlay" hidden>
+  <div class="jr-moon" id="jrMoon"></div>
+  <div class="jr-stars"></div>
+  <div class="jr-orb" id="jrOrb"></div>
+  <div class="jr-text">
+    <div class="jr-phase" id="jrPhase"></div>
+    <p class="jr-sub" id="jrSub"></p>
+  </div>
+  <div class="jr-progress"><div id="jrBar"></div></div>
+  <button class="jr-stop" id="jrStopBtn" aria-label="إنهاء الرحلة">✕</button>
+  <div class="jr-vignette" id="jrVignette"></div>
+</div>
+
+<!-- نافذة خلفيات التأمّل (Meditation Scenes Picker) -->
+<div class="sheet" id="sceneSheet" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="sheet-card">
+    <h3 id="sceneSheetH">خلفية للتأمّل</h3>
+    <p id="sceneSheetP">اختر مشهداً يهدّئ عينيك قبل النوم — كل الخلفيات مرسومة بالكود، تعمل أوفلاين، وتخفت تلقائياً في وضع النوم.</p>
+    <div class="scene-grid">
+      <button class="scene-card active" data-scene="default" aria-pressed="true"><div class="scn-prev p-default"></div><span>أورورا</span></button>
+      <button class="scene-card" data-scene="ocean" aria-pressed="false"><div class="scn-prev p-ocean"></div><span>محيط عميق</span></button>
+      <button class="scene-card" data-scene="desert" aria-pressed="false"><div class="scn-prev p-desert"></div><span>صحراء ليلية</span></button>
+      <button class="scene-card" data-scene="mountains" aria-pressed="false"><div class="scn-prev p-mountains"></div><span>جبال ضباب</span></button>
+      <button class="scene-card" data-scene="forest" aria-pressed="false"><div class="scn-prev p-forest"></div><span>غابة يراعات</span></button>
+      <button class="scene-card" data-scene="moonlake" aria-pressed="false"><div class="scn-prev p-moonlake"></div><span>بحيرة القمر</span></button>
+    </div>
+    <button class="btn-secondary" id="tiltParallaxBtn" style="width:100%">🌌 بارالاكس الحركة عبر ميل الجهاز (تجريبي)</button>
+    <p style="font-size:11px;color:var(--dim);font-weight:300;line-height:1.7" id="tiltParallaxNote">
+      يستخدم مستشعر الميل في جهازك لتحريك طبقات الخلفية فقط أثناء استخدامك — لا تُخزَّن بيانات الحركة ولا تُرسل لأي مكان.</p>
+    <div class="btn-row"><button class="btn-primary" id="closeSceneBtn">إغلاق</button></div>
+  </div>
+</div>
+
+<noscript><div style="position:fixed;inset:0;display:grid;place-items:center;background:#060a13;color:#eef2fb;font-family:sans-serif;z-index:99">يتطلب هذا التطبيق تشغيل JavaScript — This app requires JavaScript.</div></noscript>
+
+<!-- ──────── محرك التطبيق المتكامل (Autonomous JavaScript) ──────── -->
+<script>
+(()=>{ 'use strict';
+
+/* =========================================================================
+   1. محددات العناصر الأساسية وإدارة الحالة
+   ========================================================================= */
+const $=s=>document.querySelector(s);
+const $$=s=>[...document.querySelectorAll(s)];
+
+const orbWrap=$('#orbWrap'),orb=$('#orb'),phaseWord=$('#phaseWord'),phaseCount=$('#phaseCount'),
+cycleInfo=$('#cycleInfo'),aiMsg=$('#aiMsg'),quickStats=$('#quickStats'),ringFg=$('#ringFg'),
+soundBtn=$('#soundBtn'),icSoundOn=$('#icSoundOn'),icSoundOff=$('#icSoundOff'),
+hapticBtn=$('#hapticBtn'),voiceBtn=$('#voiceBtn'),nightBtn=$('#nightBtn'),langBtn=$('#langBtn'),sceneBtn=$('#sceneBtn'),
+adTop=$('#adTop'),adBottom=$('#adBottom'),customChip=$('#customChip'),
+proHeaderBtn=$('#proHeaderBtn'),proSheet=$('#proSheet'),tipSheet=$('#tipSheet'),insomniaSheet=$('#insomniaSheet');
+
+// النوافذ المنبثقة
+const aiSheet=$('#aiSheet'),pulseSheet=$('#pulseSheet'),builderSheet=$('#builderSheet'),statsSheet=$('#statsSheet'),sceneSheet=$('#sceneSheet'),
+moodInput=$('#moodInput'),moodGo=$('#moodGo'),moodSkip=$('#moodSkip'),micBtn=$('#micBtn'),
+mixerPanel=$('#mixerPanel'),ambTimer=$('#ambTimer'),stopAllAmbBtn=$('#stopAllAmbBtn');
+
+/* =========================================================================
+   2. نصوص اللغات والقواميس العلمية (العربية / English)
+   ========================================================================= */
+const arCount=n=>n===1?'نفَسة واحدة':n===2?'نفَستان':(n>=3&&n<=10)?n+' نفَسات':n+' نفَسة';
+const arDays=n=>n===1?'يوم واحد':n===2?'يومان':(n>=3&&n<=10)?n+' أيام':n+' يوماً';
+
+const I18N={
+ar:{
+  dir:'rtl',lang:'ar',
+  title:'نَفَس — تنفّس بوعي، نَم بعمق',
+  logo:'نَفَس',
+  badge:'ملف واحد · يعمل أوفلاين',
+  tag:'الحاجة الوحيدة التي لا يستطيع العالم العيش بدونها — وكل ما سواها تفاصيل.',
+  breathe:'تنفّس',paused:'وقفة هادئة',done:'أحسنت صنعاً',
+  txt:{in:'شهيق عميق',hold:'احتفظ بالنَفَس',out:'زفير هادئ'},
+  speech:{in:'شهيق',hold:'احبس النفس',out:'زفير هادئ'},
+  chips:{insomnia:'طرد الأرق',calm:'هدوء',box:'توازن',coherent:'تناغم',sigh:'تنهيدة',energy:'نشاط',custom:'ليّا',ai:'✦ مدربي الذكي'},
+  hints:{insomnia:'بروتوكول هارفارد 4-7-8 لعلاج الأرق',calm:'استرخاء ونوم 4·7·8',box:'تركيز وتوازن 4·4·4·4',coherent:'رنين متماسك 5.5·5.5 لضبط HRV',sigh:'تخفيف فوري 3+1·7',energy:'تنشيط وطاقة 5·1·2',custom:'نمطك المخصص'},
+  tools:{mixer:'خلاط أصوات النوم',pulse:'فاحص النبض والتوتر',builder:'منشئ نمط مخصص',stats:'سجل الأسبوع',insomnia:'عيادة الأرق 🌙'},
+  cycle:(a,b)=>'نفَسة '+a+' من '+b,
+  stats:(t,s)=>arCount(t)+' اليوم'+(s>0?' · متواصل '+arDays(s):''),
+  doneMsg:n=>'جلسة مكتملة ('+arCount(n)+') — لاحظ شعور الهدوء في جسدك الآن.',
+  hint:'تطبيق نقي بدون تشتيت — وظيفته الوحيدة نَفَسك. اضغط على الدائرة للبدء.',
+  foot:'ملف واحد مستقل · توليد صوتي بالكامل',
+  offlineNotice:'ملف واحد مستقل · توليد صوتي بالكامل',
+  sheetH:'نَفَسٌ على مقاسك',
+  sheetP:'أخبر مدربك الذكي بما تشعر به الآن، وسيصمم لك إيقاع تنفس علمي مخصص مع عبارة هادفة. تُرسل رسالتك لخدمة ذكاء اصطناعي خارجية لتصميم النمط فقط، وإن غاب الإنترنت يعمل المرشّح المحلي فوراً.',
+  ph:'مثال: متوتر قبل امتحان مهم ولا أستطيع التركيز…',go:'وصّف تنفّسي',loading:'أصمّم نَفَسك…',skip:'ليس الآن',
+  listening:'استمع إليك الآن…',
+  mixerHead:'خلاط أصوات النوم والموجات الدماغية',
+  tracks:{rain:'مطر هادئ',ocean:'أمواج بحر',brown:'ضجيج بني (عازل)',om:'رنين عميق (136.1Hz)',theta:'موجات ثيتا (استرخاء)',solfeggio:'تردد السلام (528Hz)',fire:'موقد نار دافئ',delta:'دلتا نوم عميق (2Hz)',pure432:'رنين نقي 432Hz'},
+  trackPlay:'تشغيل',trackStop:'إيقاف',
+  lblTimer:'المؤقّت:',stopAll:'إيقاف الكل',
+  timerOpts:['بدون مؤقّت','15 دقيقة','30 دقيقة','45 دقيقة','60 دقيقة'],
+  pulseTitle:'فاحص النبض ومستوى التوتر',
+  pulseDesc:'انقر على القلب باستمرار مع كل نبضة تشعر بها في معصمك أو عنقك لحساب معدل ضربات قلبك.',
+  pulseHint:'انقر 4 مرات متتالية لبدء القياس',
+  pulseReady:bpm=>'معدل النبض المقدر: '+bpm+' BPM',
+  pulseStress:'مستوى التوتر الآن:',
+  pulseSave:'حفظ وبدء جلسة هادئة',close:'إغلاق',
+  bldTitle:'تصميم إيقاع تنفس مخصص',
+  bldDesc:'حدد ثواني كل مرحلة بنفسك كما يوصي طبيبك أو مدربك الخاص.',
+  bldIn:'الشهيق',bldHold1:'حبس الشهيق',bldOut:'الزفير',bldHold2:'حبس الزفير',bldCycles:'الدورات',
+  applySave:'تطبيق وحفظ',cancel:'إلغاء',
+  statsTitle:'سجل اليقظة والأنفاس',
+  statsDesc:'استمرارية التنفس اليومي تعيد ضبط جهازك العصبي بالكامل.',
+  statStreak:'أيام متتالية 🔥',statToday:'أنفاس اليوم',statTotal:'إجمالي الأنفاس',weeklyActivity:'نشاط آخر 7 أيام:',
+  continueBreathe:'متابعة التنفس',resetData:'مسح السجل',confirmReset:'هل أنت متأكد من مسح جميع بيانات السجل؟',
+  sceneBtnL:'خلفية التأمّل',
+  sceneH:'خلفية للتأمّل',tiltBtn:'بارالاكس الحركة عبر ميل الجهاز (تجريبي)',tiltUnsupported:'جهازك أو متصفحك لا يدعم مستشعر الميل — جرّب على موبايل حديث.',
+  sceneP:'اختر مشهداً يهدّئ عينيك قبل النوم — كل الخلفيات مرسومة بالكود، تعمل أوفلاين، وتخفت تلقائياً في وضع النوم.',
+  sceneNames:{default:'أورورا',ocean:'محيط عميق',desert:'صحراء ليلية',mountains:'جبال ضباب',forest:'غابة يراعات',moonlake:'بحيرة القمر'},
+  localAiL:'⚡ ذكاء محلي داخل جهازك',
+  localStates:{off:'غير مفعّل — يعمل الذكاء السحابي',loading:'جارٍ تنزيل المحرك العصبي…',ready:'يعمل الآن داخل جهازك بالكامل ✓',unsupported:'متصفحك لا يدعم WebGPU بعد',error:'تعذّر تشغيل المحرك المحلي'},
+  nextSegWord:'المرحلة التالية…',
+  journeySeg:(a,b)=>'المرحلة '+a+' من '+b,
+  camTitleL:'مراقبة التنفس بالكاميرا',
+  camNote:'وجّه الكاميرا لصدرتك في إضاءة معتدلة — تُحلَّل حركتك داخل جهازك فقط، ولا يُرفع أي فيديو لأي خادم.',
+  camUnsupported:'متصفحك لا يدعم الوصول للكاميرا.',
+  camDenied:'لم يُسمح بالوصول للكاميرا.',
+  camBpmV:n=>n?n+' نَفَسة/دقيقة':'—',
+  camIdle:'اضغط على الكرة لبدء جلسة ومزامنة إيقاعك',
+  camSync:'متزامن مع إيقاع الجلسة',
+  camNeedSlow:'أبطئ قليلاً لتتزامن مع الإيقاع',
+  camNeedFast:'تسارع قليلاً لتتزامن مع الإيقاع',
+  proBadge:'نَفَس PRO',freeStatus:'FREE',proStatus:'PRO ★',proTitle:'الترقية إلى نَفَس Pro 👑',
+  buyPro:'شراء الترخيص مدى الحياة ($2.99)',
+  trial:'🎁 تجربة Pro مجاناً 24 ساعة — بدون بطاقة وبدون إعلانات مزيفة',
+  trialStarted:'مرحباً بك في Pro — كل المزايا مفتوحة لمدة 24 ساعة 🌟',
+  keyValid:'تم تفعيل نَفَس Pro بنجاح! شكراً لدعمك 🌟',
+  keyInvalid:'الكود غير صحيح — تأكد من كتابته.',
+  haveKey:'لديك كود ترخيص؟',
+  proSub:'دفعة واحدة · بدون اشتراك · تدوم للأبد',
+  proNote:'بعد الدفع على PayPal أرسل لي اسمك وسيصلك كود التفعيل — أدخله هنا ليفتح Pro للأبد.',
+  perk1:'إخفاء جميع الإعلانات نهائياً من كل الشاشات.',
+  perk2:'أصوات حصرية: موقد النار، موجات دلتا، رنين 432Hz.',
+  perk3:'مؤقت نوم حتى 8 ساعات متواصلة طوال الليل.',
+  perk4:'شارة PRO الذهبية ودعم استمرار التطبيق المستقل.',
+  proLocked:'🔒 فتح',
+  tipTitle:'☕ هل شعرت بالهدوء؟',
+  tipSub:'دعم بسيط يضمن استمرار نَفَس مستقلاً وبدون إعلانات',
+  tipDesc:'نَفَس صُنع بحب ليساعد الجميع على التنفس والنوم بسلام — مساهمتك الصغيرة تضمن تطويره الدائم.',
+  tipCoffee:'قهوة دافئة ☕',tipSuper:'دعم كريم 🌟',tipAngel:'راعي سلام 🕊️',
+  sendTip:'إرسال الدعم عبر PayPal',
+  timer2:'🔒 ساعتان (PRO)',timer4:'🔒 4 ساعات (PRO)',timer8:'🔒 8 ساعات (PRO)',
+  insomniaH:'عيادة النوم والأرق 🌙',
+  insomniaSub:'طريقة هارفارد 4-7-8 · استرخاء عضلي · عدّ تنويمي',
+  insomniaBanner:'<b>طارد التفكير الزائد:</b> 30 دورة من إيقاع 4-7-8 تبطئ نبضك وتقود دماغك برفق نحو النوم العميق.',
+  cbt1:'<b>إسقاط الفك واللسان:</b> الشد العصبي اللاواعي يتركز في عضلات الفك؛ أرخِ الفكين فيهدأ العقل فوراً.',
+  cbt2:'<b>حماية الميلاتونين:</b> فعّل الوضع الليلي ليخفت الإضاءة لأطياف عنبرية خالية من الضوء الأزرق.',
+  cbt3:'<b>قاعدة الـ 20 دقيقة:</b> إن لم يأتك النعاس فلا تقاومه — دع الأصوات تعمل وركّز على ثقل ذراعيك.',
+  insomniaStart:'✨ تشغيل جلسة النوم الشاملة (أصوات + مؤقت ساعة)',
+  insomniaHypnotic:'🔢 جلسة مع العدّ التنويمي (100 ➔ 0)',
+  insomniaActive:'جلسة علاج الأرق جارية: أرخِ فكك، أسقط كتفيك، وثق في النعاس…',
+  pmr:['أرخِ عضلات جبهتك وعينيك تماماً…','أسقط فكك ودع لسانك يرتاح في قاع فمك…','أنزل كتفيك بالكامل ودع ذراعيك تثقلان…','أفرغ صدرك وبطنك من أي شد، استسلم للجاذبية…','أرخِ ساقيك وقدميك في ثقل دافئ…','دع كل فكرة تطفو كغمامة وتغيب في الظلام…'],
+  journeyBtn:'🎧 رحلة النَفَس نحو النوم العميق (6 دقائق)',
+  journeyPhase0:'التهيئة والاستقرار',journeyPhase1:'مسح الجسد وإسقاط الشد',journeyPhase2:'إيقاع التنفس 4·7·8',journeyPhase3:'ثقل الهدوء والتلاشي',
+  adDemo:'مساحة إعلانية · جاهزة لـ AdSense',
+  fb:{
+    calm:'لا يوجد شيء يستحق التوتر الآن — أطل الزفير ودع كتفيك تسترخيان.',
+    box:'ارسم مربعاً بنفَسك: شهيق، احتفظ، زفير، احتفظ — يتزن العقل فوراً.',
+    coherent:'تنفس الرنين المتماسك يوازن تقلب نبضات قلبك (HRV) ويعيد الهدوء الداخلي.',
+    energy:'أنفاس سريعة محسوبة تعيد ضخ الأكسجين والانتباه لعينيك ودماغك.',
+    sigh:'التنهيدة الفسيولوجية — الوسيلة العصبية الأسرع لتفريغ حمولة التوتر.',
+    def:'مهما كانت التحديات، تبدأ خطوتك الأولى من هذا النَفَس.'
+  }
+},
+en:{
+  dir:'ltr',lang:'en',
+  title:'Nafas — Breathe Deeply, Sleep Soundly',
+  logo:'Nafas',
+  badge:'One file · 100% Offline',
+  tag:'The only thing the whole world cannot live without — everything else is just details.',
+  breathe:'Breathe',paused:'Paused',done:'Session Complete',
+  txt:{in:'Breathe In',hold:'Hold Breath',out:'Breathe Out'},
+  speech:{in:'Breathe in',hold:'Hold',out:'Breathe out slowly'},
+  chips:{insomnia:'Insomnia',calm:'Calm',box:'Balance',coherent:'Coherence',sigh:'Sigh',energy:'Energy',custom:'For You',ai:'✦ AI Coach'},
+  hints:{insomnia:'Harvard 4-7-8 insomnia protocol',calm:'Sleep & Relax 4·7·8',box:'Focus & Balance 4·4·4·4',coherent:'Heart Rate Variability 5.5·5.5',sigh:'Instant Reset 3+1·7',energy:'Wake & Power 5·1·2',custom:'Your Custom Pattern'},
+  tools:{mixer:'Sleep Sound Mixer',pulse:'Pulse & Stress Check',builder:'Custom Rhythm',stats:'Weekly Log',insomnia:'Insomnia Clinic 🌙'},
+  cycle:(a,b)=>'Breath '+a+' of '+b,
+  stats:(t,s)=>t+(t===1?' breath':' breaths')+' today'+(s>0?' · '+s+'-day streak':''),
+  doneMsg:n=>'Session complete — '+n+' deep breaths. Notice the calm in your body.',
+  hint:'Distraction-free and pure — its sole purpose is your breath. Tap the circle to begin.',
+  foot:'All-in-one file · fully generated procedural audio',
+  offlineNotice:'Single-file autonomous · procedural audio',
+  sheetH:'A breath tailored to you',
+  sheetP:'Tell your AI coach how you feel right now and it will craft a scientific rhythm with words of support. Your message goes to an external AI service only to craft the pattern; offline, a local instant matcher takes over.',
+  ph:'e.g. nervous before a major job interview…',go:'Prescribe my breath',loading:'Crafting rhythm…',skip:'Not now',
+  listening:'Listening to your voice…',
+  mixerHead:'Sleep Sounds & Brainwave Mixer',
+  tracks:{rain:'Gentle Rain',ocean:'Ocean Waves',brown:'Brown Noise (Shield)',om:'Cosmic Om (136.1Hz)',theta:'Theta Waves (6Hz)',solfeggio:'Healing Solfeggio (528Hz)',fire:'Cozy Fireplace',delta:'Deep Delta (2Hz)',pure432:'Pure 432Hz'},
+  trackPlay:'Play',trackStop:'Mute',
+  lblTimer:'Auto-stop:',stopAll:'Mute All',
+  timerOpts:['No timer','15 min','30 min','45 min','60 min'],
+  pulseTitle:'Pulse & Stress Level Check',
+  pulseDesc:'Tap the heart in rhythm with your pulse (wrist or neck) to calculate estimated BPM.',
+  pulseHint:'Tap 4 times consecutively to measure',
+  pulseReady:bpm=>'Estimated Pulse: '+bpm+' BPM',
+  pulseStress:'Current Stress Level:',
+  pulseSave:'Save & Start Calm Session',close:'Close',
+  bldTitle:'Custom Breathing Builder',
+  bldDesc:'Configure the seconds for every phase according to your personal routine or doctor’s advice.',
+  bldIn:'Inhale',bldHold1:'Hold In',bldOut:'Exhale',bldHold2:'Hold Out',bldCycles:'Cycles',
+  applySave:'Apply & Save',cancel:'Cancel',
+  statsTitle:'Mindfulness & Breathing Log',
+  statsDesc:'Daily intentional breathing recalibrates your entire nervous system.',
+  statStreak:'Day Streak 🔥',statToday:'Today’s Breaths',statTotal:'Total Breaths',weeklyActivity:'Past 7 Days Activity:',
+  continueBreathe:'Continue Breathing',resetData:'Reset History',confirmReset:'Are you sure you want to clear all history data?',
+  sceneBtnL:'Meditation background',
+  sceneH:'A Background for Meditation',tiltBtn:'Motion Parallax via Device Tilt (Experimental)',tiltUnsupported:'Your device or browser doesn\'t support the tilt sensor — try a modern mobile phone.',
+  sceneP:'Pick a scene to soften your eyes before sleep — code-drawn backgrounds that work offline and dim automatically in night mode.',
+  sceneNames:{default:'Aurora',ocean:'Deep Ocean',desert:'Night Desert',mountains:'Misty Mountains',forest:'Firefly Forest',moonlake:'Moon Lake'},
+  localAiL:'⚡ On-device AI',
+  localStates:{off:'Not enabled — cloud AI is used',loading:'Downloading neural engine…',ready:'Running fully on your device ✓',unsupported:'WebGPU not yet supported here',error:'Failed to start the local engine'},
+  nextSegWord:'Next phase…',
+  journeySeg:(a,b)=>'Phase '+a+' of '+b,
+  camTitleL:'Camera breathing monitor',
+  camNote:'Point the camera at your torso in moderate light — motion is analyzed on your device only; no video ever leaves it.',
+  camUnsupported:'Camera access is not supported in your browser.',
+  camDenied:'Camera access was denied.',
+  camBpmV:n=>n?n+' breaths/min':'—',
+  camIdle:'Tap the orb to start a session and sync your rhythm',
+  camSync:'in sync with the session',
+  camNeedSlow:'Slow down a little to sync',
+  camNeedFast:'Speed up a little to sync',
+  proBadge:'NAFAS PRO',freeStatus:'FREE',proStatus:'PRO ★',proTitle:'Upgrade to Nafas Pro 👑',
+  buyPro:'Get Lifetime License ($2.99)',
+  trial:'🎁 Free 24-hour Pro trial — no card, no fake ads',
+  trialStarted:'Welcome to Pro — everything unlocked for 24 hours 🌟',
+  keyValid:'Nafas Pro activated! Thank you for your support 🌟',
+  keyInvalid:'Invalid key — please double-check it.',
+  haveKey:'Have a license key?',
+  proSub:'One-time payment · no subscription · lasts forever',
+  proNote:'After paying via PayPal you will receive your activation key — enter it here to unlock Pro forever.',
+  perk1:'Remove all ads permanently from every screen.',
+  perk2:'Exclusive tracks: Fireplace, Delta 2Hz, Pure 432Hz.',
+  perk3:'Sleep timer up to 8 continuous hours.',
+  perk4:'Golden PRO badge and support for this independent app.',
+  proLocked:'🔒 Unlock',
+  tipTitle:'☕ Feeling calm now?',
+  tipSub:'A small contribution keeps Nafas independent and ad-free',
+  tipDesc:'Nafas was crafted with love to help everyone breathe and sleep in peace — your small contribution keeps it evolving.',
+  tipCoffee:'Warm coffee ☕',tipSuper:'Kind support 🌟',tipAngel:'Peace patron 🕊️',
+  sendTip:'Send support via PayPal',
+  timer2:'🔒 2 hours (PRO)',timer4:'🔒 4 hours (PRO)',timer8:'🔒 8 hours (PRO)',
+  insomniaH:'Sleep & Insomnia Clinic 🌙',
+  insomniaSub:'Harvard 4-7-8 · Progressive Relaxation · Hypnotic Countdown',
+  insomniaBanner:'<b>Quiet the overthinking mind:</b> 30 cycles of 4-7-8 slow your heart rate and gently guide your brain into deep sleep.',
+  cbt1:'<b>Drop jaw & tongue:</b> unconscious stress locks in the jaw; soften it to signal safety to your nervous system.',
+  cbt2:'<b>Melatonin protection:</b> enable night mode to dim the display to amber tones free of blue light.',
+  cbt3:'<b>The 20-minute rule:</b> do not fight sleeplessness — let the sounds play and focus on the heaviness of your arms.',
+  insomniaStart:'✨ Start the full sleep session (sounds + 1-hour timer)',
+  insomniaHypnotic:'🔢 Session with hypnotic countdown (100 ➔ 0)',
+  insomniaActive:'Sleep therapy running: drop your jaw, soften your shoulders, trust the drowsiness…',
+  pmr:['Soften your forehead and eyelids completely…','Drop your jaw and let your tongue rest…','Release your shoulders fully, let your arms sink…','Empty your chest and belly of any tension…','Relax your legs and feet in warm heaviness…','Let every thought drift away like a cloud into darkness…'],
+  journeyBtn:'🎧 The Breath Journey to Deep Sleep (6 min)',
+  journeyPhase0:'Settling In',journeyPhase1:'Body Scan & Release',journeyPhase2:'Breathing Rhythm 4·7·8',journeyPhase3:'Sinking In & Fading',
+  adDemo:'Ad slot · AdSense-ready',
+  fb:{
+    calm:'Nothing you need to carry right now — lengthen the exhale and let your shoulders drop.',
+    box:'Let your breath draw a square: in, hold, out, hold. Equanimity returns effortlessly.',
+    coherent:'Coherent breathing balances your Heart Rate Variability (HRV) and soothes your nerves.',
+    energy:'Light, purposeful breaths flood your brain and eyes with oxygen.',
+    sigh:'The physiological sigh is the fastest neurobiological reset for rapid de-stressing.',
+    def:'Whatever is happening, it passes through this breath first.'
+  }
+}
+};
+
+/* =========================================================================
+   3. الحفظ المحلي (LocalStorage) وإعدادات المستخدم
+   ========================================================================= */
+const KEY='nafas_pro_v3';
+let st={
+  lang:'ar',
+  sound:true,
+  haptic:true,
+  voice:false,
+  night:false,
+  days:{},
+  total:0,
+  lastPulse:null,
+  lastStress:5,
+  customPattern:null,
+  scene:'default',
+  localAI:false,
+  coachLog:[],
+  isPro:false,proUntil:0,tipShownDate:'',insomniaMode:false,tiltParallax:false,
+  tracks:{rain:0,ocean:0,brown:0,om:0,theta:0,solfeggio:0,fire:0,delta:0,pure432:0},
+  vols:{rain:70,ocean:65,brown:60,om:50,theta:45,solfeggio:40,fire:45,delta:35,pure432:40}
+};
+
+try{
+  const saved=JSON.parse(localStorage.getItem(KEY));
+  if(saved&&typeof saved==='object'){
+    st={...st,...saved};
+    st.tracks={...st.tracks,...(saved.tracks||{})};
+    st.vols={...st.vols,...(saved.vols||{})};
+  }
+}catch(e){}
+if(!['default','ocean','desert','mountains','forest','moonlake'].includes(st.scene))st.scene='default';
+if(!Array.isArray(st.coachLog))st.coachLog=[];
+st.isPro=Boolean(st.isPro);if(typeof st.proUntil!=='number')st.proUntil=0;
+
+/* ═══ إعدادات الدخل الخاصة بك — تُعدّل من مكان واحد فقط ═══
+   رابط PayPal.Me الخاص بك: بعد الدفع يصلك إشعار على PayPal، ثم ترسل
+   كود التفعيل للمشتري يدوياً (أو استخدم Gumroad لتسليم تلقائي). */
+const MONETIZATION={
+  paypalMe:'https://www.paypal.com/paypalme/businessmanCairo',
+  licenseKeys:['NAFAS-PRO-2026','CALM-EGYPT','PEACE-CAIRO']  // ← أكوادك: غيّرها واحتفظ بها لنفسك
+};
+const isProActive=()=>Boolean(st.isPro||(st.proUntil&&st.proUntil>Date.now()));
+const saveSt=()=>{try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}};
+const T=()=>I18N[st.lang]||I18N.ar;
+// ترقية سلسة من المفتاح القديم nafas.v2 (أول تشغيل فقط، بدون فقدان السجل)
+try{
+  const old=JSON.parse(localStorage.getItem('nafas.v2')||'null');
+  if(old&&typeof old==='object'&&st.total===0&&(!st.days||Object.keys(st.days).length===0)){
+    if(old.days)st.days=old.days;
+    if(old.total)st.total=old.total;
+    saveSt();
+  }
+}catch(e){}
+const getTodayKey=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};
+
+/* =========================================================================
+   4. الأنماط العلمية للتنفس (Scientific Protocols)
+   ========================================================================= */
+const PATTERNS={
+  insomnia:{cycles:30,phases:[{k:'in',s:4},{k:'hold',s:7},{k:'out',s:8}]},
+  calm:{cycles:4,phases:[{k:'in',s:4},{k:'hold',s:7},{k:'out',s:8}]},
+  box:{cycles:5,phases:[{k:'in',s:4},{k:'hold',s:4},{k:'out',s:4},{k:'hold',s:4}]},
+  coherent:{cycles:6,phases:[{k:'in',s:5.5},{k:'out',s:5.5}]},
+  sigh:{cycles:5,phases:[{k:'in',s:3},{k:'in',s:1},{k:'out',s:7}]},
+  energy:{cycles:8,phases:[{k:'in',s:5},{k:'hold',s:1},{k:'out',s:2}]}
+};
+
+/* =========================================================================
+   5. المحرك الصوتي التوليدي النقي (Web Audio API Engine)
+   ========================================================================= */
+let AC=null,mixerMaster=null;
+function actx(){
+  if(!AC){
+    const AudioContextClass=window.AudioContext||window.webkitAudioContext;
+    AC=new AudioContextClass();
+  }
+  if(AC.state==='suspended')AC.resume();
+  return AC;
+}
+
+function getMixerMaster(){
+  const a=actx();
+  if(!mixerMaster){
+    mixerMaster=a.createGain();
+    mixerMaster.connect(a.destination);
+    mixerMaster.gain.value=st.sound?0.9:0;
+  }
+  return mixerMaster;
+}
+
+// نغمات إشارات التنفس (Tone Cue Chimes)
+function playCueTone(freqStart,freqEnd,dur,type='sine'){
+  if(!st.sound)return;
+  try{
+    const a=actx(),t=a.currentTime;
+    const osc=a.createOscillator(),g=a.createGain();
+    osc.type=type;
+    osc.frequency.setValueAtTime(freqStart,t);
+    osc.frequency.exponentialRampToValueAtTime(Math.max(40,freqEnd),t+dur);
+    g.gain.setValueAtTime(0.0001,t);
+    g.gain.exponentialRampToValueAtTime(0.06,t+0.15);
+    g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
+    osc.connect(g);g.connect(a.destination);
+    osc.start(t);osc.stop(t+dur+0.05);
+  }catch(e){}
+}
+
+function playDoneHarmonic(){
+  playCueTone(392,392,0.9);
+  setTimeout(()=>playCueTone(523.25,523.25,1.5),260);
+  setTimeout(()=>playCueTone(659.25,659.25,1.8),520);
+}
+
+// مخازن الضجيج العشوائي (Noise Buffers)
+function createNoiseBuffer(a,type='brown'){
+  const len=Math.floor(a.sampleRate*4);
+  const buf=a.createBuffer(type==='stereo'?2:1,len,a.sampleRate);
+  if(type==='brown'){
+    const d=buf.getChannelData(0);let last=0;
+    for(let i=0;i<len;i++){const w=Math.random()*2-1;last=(last+0.02*w)/1.02;d[i]=last*3.2}
+  }else if(type==='white'){
+    const d=buf.getChannelData(0);
+    for(let i=0;i<len;i++)d[i]=Math.random()*2-1;
+  }
+  return buf;
+}
+
+function createLoopSource(a,buf){
+  const src=a.createBufferSource();
+  src.buffer=buf;
+  src.loop=true;
+  return src;
+}
+
+/* ────────── المولدات الصوتية الستة (Generative Tracks) ────────── */
+const PROCEDURAL_AUDIO={
+  // 1. المطر الهادئ الواقعي
+  rain(dest,a){
+    const n1=createLoopSource(a,createNoiseBuffer(a,'white'));
+    const hp=a.createBiquadFilter();hp.type='highpass';hp.frequency.value=600;
+    const g1=a.createGain();g1.gain.value=0.28;
+    n1.connect(hp);hp.connect(g1);g1.connect(dest);
+
+    const n2=createLoopSource(a,createNoiseBuffer(a,'white'));
+    const bp=a.createBiquadFilter();bp.type='bandpass';bp.frequency.value=2400;bp.Q.value=0.9;
+    const g2=a.createGain();g2.gain.value=0.14;
+    n2.connect(bp);bp.connect(g2);g2.connect(dest);
+
+    const dropIv=setInterval(()=>{
+      if(Math.random()<0.65){
+        const t=a.currentTime,osc=a.createOscillator(),g=a.createGain();
+        osc.frequency.value=400+Math.random()*1100;
+        g.gain.setValueAtTime(0.015+Math.random()*0.02,t);
+        g.gain.exponentialRampToValueAtTime(0.0001,t+0.05+Math.random()*0.08);
+        osc.connect(g);g.connect(dest);
+        osc.start(t);osc.stop(t+0.16);
+      }
+    },90);
+    n1.start();n2.start();
+    return{stop(){clearInterval(dropIv);try{n1.stop();n2.stop()}catch(e){}}};
+  },
+
+  // 2. أمواج البحر الهادئة
+  ocean(dest,a){
+    const n=createLoopSource(a,createNoiseBuffer(a,'brown'));
+    const lp=a.createBiquadFilter();lp.type='lowpass';lp.frequency.value=420;
+    const g=a.createGain();g.gain.value=0.08;
+    // تذبذب مد وجزر الأمواج
+    const l1=a.createOscillator(),lg1=a.createGain();
+    l1.frequency.value=0.075;lg1.gain.value=0.45;
+    l1.connect(lg1);lg1.connect(g.gain);
+    const l2=a.createOscillator(),lg2=a.createGain();
+    l2.frequency.value=0.11;lg2.gain.value=0.18;
+    l2.connect(lg2);lg2.connect(g.gain);
+
+    n.connect(lp);lp.connect(g);g.connect(dest);
+    n.start();l1.start();l2.start();
+    return{stop(){try{n.stop();l1.stop();l2.stop()}catch(e){}}};
+  },
+
+  // 3. ضجيج بني عميق عازل للأفكار والضوضاء الخارجية
+  brown(dest,a){
+    const n=createLoopSource(a,createNoiseBuffer(a,'brown'));
+    const lp=a.createBiquadFilter();lp.type='lowpass';lp.frequency.value=450;
+    const g=a.createGain();g.gain.value=0.5;
+    n.connect(lp);lp.connect(g);g.connect(dest);
+    n.start();
+    return{stop(){try{n.stop()}catch(e){}}};
+  },
+
+  // 4. رنين كوني دافئ 136.1Hz Om Drone
+  om(dest,a){
+    const gain=a.createGain();gain.gain.value=0.7;gain.connect(dest);
+    const mkOsc=(f,v,det=0)=>{
+      const o=a.createOscillator(),g=a.createGain();
+      o.type='sine';o.frequency.value=f;o.detune.value=det;
+      g.gain.value=v;o.connect(g);g.connect(gain);o.start();return o;
+    };
+    const o1=mkOsc(136.1,0.35);
+    const o2=mkOsc(272.2,0.12);
+    const o3=mkOsc(68.05,0.22);
+    const o4=mkOsc(136.1,0.1,6); // Detune chorus
+    const lfo=a.createOscillator(),lfoG=a.createGain();
+    lfo.frequency.value=0.1;lfoG.gain.value=0.05;
+    lfo.connect(lfoG);lfoG.connect(gain.gain);lfo.start();
+    return{stop(){try{o1.stop();o2.stop();o3.stop();o4.stop();lfo.stop()}catch(e){}}};
+  },
+
+  // 5. موجات ثيتا ثنائية الأذن (Binaural Beats: 216Hz L, 222Hz R -> 6Hz Theta)
+  theta(dest,a){
+    const merger=a.createChannelMerger(2);
+    const oL=a.createOscillator(),gL=a.createGain();
+    oL.type='sine';oL.frequency.value=216;gL.gain.value=0.25;
+    oL.connect(gL);gL.connect(merger,0,0); // Left channel
+
+    const oR=a.createOscillator(),gR=a.createGain();
+    oR.type='sine';oR.frequency.value=222;gR.gain.value=0.25;
+    oR.connect(gR);gR.connect(merger,0,1); // Right channel
+
+    merger.connect(dest);
+    oL.start();oR.start();
+    return{stop(){try{oL.stop();oR.stop()}catch(e){}}};
+  },
+
+  // 6. تردد السلام 528Hz Solfeggio
+  solfeggio(dest,a){
+    const osc=a.createOscillator(),g=a.createGain();
+    osc.type='sine';osc.frequency.value=528;g.gain.value=0.18;
+    const lfo=a.createOscillator(),lfoG=a.createGain();
+    lfo.frequency.value=0.2;lfoG.gain.value=0.04;
+    lfo.connect(lfoG);lfoG.connect(g.gain);
+    osc.connect(g);g.connect(dest);
+    osc.start();lfo.start();
+    return{stop(){try{osc.stop();lfo.stop()}catch(e){}}};
+  },
+  /* ══ مسارات PRO الحصرية ══ */
+  fire(dest,a){ // موقد نار: هسيس دافئ + فرقعة خشب واقعية
+    const n=createLoopSource(a,createNoiseBuffer(a,'brown'));
+    const lp=a.createBiquadFilter();lp.type='lowpass';lp.frequency.value=320;
+    const g=a.createGain();g.gain.value=0.4;
+    n.connect(lp);lp.connect(g);g.connect(dest);n.start();
+    const iv=setInterval(()=>{
+      if(Math.random()<0.4){
+        const t0=a.currentTime,o=a.createOscillator(),cg=a.createGain();
+        o.type='triangle';o.frequency.value=110+Math.random()*380;
+        cg.gain.setValueAtTime(0.035+Math.random()*0.04,t0);
+        cg.gain.exponentialRampToValueAtTime(0.0001,t0+0.04+Math.random()*0.06);
+        o.connect(cg);cg.connect(dest);o.start(t0);o.stop(t0+0.12);
+      }
+    },95);
+    return{stop(){clearInterval(iv);try{n.stop()}catch(e){}}};
+  },
+  delta(dest,a){ // موجات دلتا 2Hz — نبض تزامني ثنائي الأذن
+    const merger=a.createChannelMerger(2);merger.connect(dest);
+    const oL=a.createOscillator(),oR=a.createOscillator();
+    oL.frequency.value=100;oR.frequency.value=102;
+    const gL=a.createGain(),gR=a.createGain();
+    gL.gain.value=0.3;gR.gain.value=0.3;
+    oL.connect(gL);gL.connect(merger,0,0);
+    oR.connect(gR);gR.connect(merger,0,1);
+    oL.start();oR.start();
+    return{stop(){try{oL.stop();oR.stop()}catch(e){}}};
+  },
+  pure432(dest,a){ // رنين نقي 432Hz
+    const osc=a.createOscillator(),g=a.createGain();
+    osc.type='sine';osc.frequency.value=432;g.gain.value=0.22;
+    osc.connect(g);g.connect(dest);osc.start();
+    return{stop(){try{osc.stop()}catch(e){}}};
+  }
+};
+
+/* ────────── مدير مسارات الخلاط الصوتي (Mixer Manager) ────────── */
+const activeTracks={};
+function toggleTrack(key){
+  const trackEl=$(`.sound-track[data-track="${key}"]`);
+  if(trackEl&&trackEl.classList.contains('pro-locked')&&!isProActive()){openProSheet();return}
+  const a=actx();
+  const master=getMixerMaster();
+  const el=$(`.sound-track[data-track="${key}"]`);
+  const btn=el?el.querySelector('.track-toggle'):null;
+
+  if(activeTracks[key]){
+    // إيقاف المسار بتلاشٍ ناعم
+    const tObj=activeTracks[key];
+    delete activeTracks[key];
+    st.tracks[key]=0;saveSt();
+    try{
+      tObj.gain.gain.setTargetAtTime(0,a.currentTime,0.4);
+      setTimeout(()=>{tObj.api.stop();tObj.gain.disconnect()},600);
+    }catch(e){}
+    if(el)el.classList.remove('playing');
+    if(btn)btn.textContent=T().trackPlay;
+  }else{
+    // تشغيل المسار
+    const g=a.createGain();
+    const vol=(st.vols[key]||50)/100;
+    g.gain.setValueAtTime(0,a.currentTime);
+    g.connect(master);
+    const api=PROCEDURAL_AUDIO[key](g,a);
+    g.gain.setTargetAtTime(vol*0.85,a.currentTime,0.8);
+    activeTracks[key]={api,gain:g};
+    st.tracks[key]=1;saveSt();
+    if(el)el.classList.add('playing');
+    if(btn)btn.textContent=T().trackStop;
+  }
+  updateMixerButtonState();
+}
+
+function updateTrackVolume(key,val){
+  st.vols[key]=val;saveSt();
+  if(activeTracks[key]){
+    const g=activeTracks[key].gain;
+    g.gain.setTargetAtTime((val/100)*0.85,actx().currentTime,0.1);
+  }
+}
+
+function stopAllTracks(){
+  Object.keys(activeTracks).forEach(k=>toggleTrack(k));
+  clearTimeout(ambTimerId);
+}
+
+function updateMixerButtonState(){
+  const hasActive=Object.keys(activeTracks).length>0;
+  $('#openMixerBtn').classList.toggle('active',hasActive);
+}
+
+// مؤقت النوم للإيقاف التلقائي
+let ambTimerId=null;
+ambTimer.addEventListener('change',()=>{
+  clearTimeout(ambTimerId);
+  const m=+ambTimer.value;
+  if(m>=120&&!isProActive()){ambTimer.value="0";openProSheet();return}
+  if(!m)return;
+  ambTimerId=setTimeout(()=>{
+    stopAllTracks();
+  },m*60000);
+});
+stopAllAmbBtn.addEventListener('click',stopAllTracks);
+
+/* =========================================================================
+   6. الاهتزازات اللمسية الذكية (Haptic Feedback)
+   ========================================================================= */
+function triggerHaptic(pattern){
+  if(!st.haptic||!('vibrate' in navigator))return;
+  try{navigator.vibrate(pattern)}catch(e){}
+}
+
+hapticBtn.addEventListener('click',()=>{
+  st.haptic=!st.haptic;saveSt();
+  hapticBtn.classList.toggle('active',st.haptic);
+  if(st.haptic)triggerHaptic(60);
+});
+
+/* =========================================================================
+   7. التوجيه الصوتي اللفظي (Voice Prompts / Speech Synthesis)
+   ========================================================================= */
+/* ── محرك الصوت الطبيعي: فصحى سليمة ونبرة بشرية هادئة ── */
+const VOICE_CACHE={ar:null,en:null};
+function refreshVoiceCache(){
+  try{
+    if(!('speechSynthesis' in window))return;
+    const vs=window.speechSynthesis.getVoices()||[];
+    const score=v=>{
+      let s=0;const n=(v.name||'').toLowerCase(),l=(v.lang||'').toLowerCase();
+      if(/natural|neural/.test(n))s+=8;       // أصوات عصبية — أقرب ما يكون للبشر
+      if(/premium|enhanced/.test(n))s+=6;    // أصوات محسّنة (iOS)
+      if(/google/.test(n))s+=5;
+      if(/microsoft/.test(n))s+=3;
+      if(/hamed|naayf|salim|aria|jenny|samantha|ava|serena|fiona|karen|moira|tessa|joanna|salli|nicole|zeina|laila|hoda|amira/.test(n))s+=3; // أصوات رقيقة معروفة
+      if(/female|woman|امرأة|أنيسة/.test(n))s+=1; // نبرات أنثوية غالباً أهدأ للتأمل
+      if(v.localService===false)s+=2;         // الأصوات السحابية أعلى جودة
+      if(l.startsWith('ar-sa'))s+=2;else if(l.startsWith('ar'))s+=1;
+      return s;
+    };
+    const pick=code=>vs.filter(v=>(v.lang||'').toLowerCase().startsWith(code))
+      .sort((a,b)=>score(b)-score(a))[0]||null;
+    VOICE_CACHE.ar=pick('ar');
+    VOICE_CACHE.en=pick('en-us')||pick('en-gb')||pick('en');
+  }catch(e){}
+}
+if('speechSynthesis' in window){
+  refreshVoiceCache();
+  try{window.speechSynthesis.addEventListener('voiceschanged',refreshVoiceCache)}
+  catch(e){window.speechSynthesis.onvoiceschanged=refreshVoiceCache}
+}
+
+function speakPhase(text){
+  if(!st.voice||!('speechSynthesis' in window))return;
+  try{
+    window.speechSynthesis.cancel();
+    const u=new SpeechSynthesisUtterance(text);
+    const ar=st.lang==='ar';
+    const v=ar?VOICE_CACHE.ar:VOICE_CACHE.en;
+    if(v){u.voice=v;u.lang=v.lang}
+    else u.lang=ar?'ar-SA':'en-US';
+    const jit=(Math.random()-0.5)*0.03; // جيتر عضوي طفيف يمنع تكرار نغمة واحدة حرفياً كل دورة
+    u.rate=(ar?0.78:0.8)+jit;
+    u.pitch=0.86+jit*0.5;   // نبرة دافئة منخفضة
+    u.volume=0.9;
+    window.speechSynthesis.speak(u);
+  }catch(e){}
+}
+
+/* النطق الطبيعي الكامل: يقسّم النص إلى جُمَع نَفَس عند علامات الوقف —
+   فاصلة = نفَس قصير، نهاية جملة/حذف = نفَس طويل، سؤال = تصاعد رقيق —
+   مع انحراف نغمي عضوي (جيتر + موجة بطيئة) بدل التكرار الآلي، وعمق استقرار
+   يزداد تدريجياً كلما تقدّمت الجلسة (النبرة تهبط وتبطؤ أكثر قرب النوم) */
+let naturalTimers=[];
+function clearNaturalQueue(){
+  naturalTimers.forEach(clearTimeout);naturalTimers=[];
+  try{window.speechSynthesis&&window.speechSynthesis.cancel()}catch(e){}
+}
+function punctuationBreath(ch){
+  const last=ch.slice(-1);
+  if(last==='؟'||last==='?')return{pause:660,riseP:0.045};       // سؤال: تصاعد رقيق
+  if(last==='!')return{pause:700,riseP:0.02};
+  if(last==='…'||last==='.')return{pause:880,riseP:-0.01};       // نهاية فكرة: نفَس طويل عميق
+  if(last==='،'||last===','||last===';'||last==='؛')return{pause:270,riseP:0}; // فاصلة: نفَس قصير
+  return{pause:480,riseP:0};
+}
+function speakNaturally(text,opts={}){
+  if(!('speechSynthesis' in window))return;
+  clearNaturalQueue();
+  const ar=(opts.lang||st.lang)!=='en';
+  const v=ar?VOICE_CACHE.ar:VOICE_CACHE.en;
+  const baseRate=opts.rate||0.72,basePitch=opts.pitch||0.85;
+  const depth=Math.max(0,Math.min(1,opts.depth||0)); // 0 بداية الجلسة → 1 قرب النوم
+  // تقسيم إلى جُمَع نَفَس عند علامات الوقف (تُحفظ علامة الترقيم آخر كل جُمعة لتصنيف الوقفة)
+  const chunks=text.replace(/\.\.\./g,'…')
+    .split(/(?<=[…\.!؟?،,؛;])\s*/)
+    .map(c=>c.trim()).filter(c=>/[\u0600-\u06FFa-zA-Z0-9]/.test(c));
+  let i=0;
+  const speakNext=()=>{
+    if(i>=chunks.length)return;
+    const ch=chunks[i++];
+    try{
+      const u=new SpeechSynthesisUtterance(ch);
+      if(v){u.voice=v;u.lang=v.lang}
+      else u.lang=ar?'ar-SA':'en-US';
+      const {pause,riseP}=punctuationBreath(ch);
+      // انحراف عضوي: موجة بطيئة + جيتر عشوائي صغير — لا يتكرر بنمط ثابت أبداً
+      const organic=Math.sin(i*0.85)*0.015+(Math.random()-0.5)*0.012;
+      // عمق الاستقرار: كل ما اتقدمت الجلسة، الصوت يبطؤ ويهبط أكتر برفق
+      const settle=depth*0.07;
+      u.rate=Math.max(0.5,Math.min(0.95,baseRate+organic-settle));
+      u.pitch=Math.max(0.55,Math.min(1.1,basePitch+organic*0.5-settle*0.6+riseP));
+      u.volume=0.9;
+      u.onend=()=>{naturalTimers.push(setTimeout(speakNext,pause))};
+      u.onerror=()=>{naturalTimers.push(setTimeout(speakNext,300))};
+      window.speechSynthesis.speak(u);
+    }catch(e){}
+  };
+  speakNext();
+}
+
+voiceBtn.addEventListener('click',()=>{
+  st.voice=!st.voice;saveSt();
+  voiceBtn.classList.toggle('active',st.voice);
+  if(st.voice)speakPhase(T().speech.in);
+});
+
+/* =========================================================================
+   8. محرك حركة التنفس وحساب التوقيتات (Breathing Core)
+   ========================================================================= */
+const MIN_SCALE=0.58;
+const easeInOut=t=>0.5-0.5*Math.cos(Math.PI*Math.min(1,Math.max(0,t)));
+
+let currentPattern=PATTERNS.calm;
+let appState='idle'; // 'idle' | 'run' | 'pause' | 'done'
+let pIdx=0,phaseTimer=0,cycleCount=0,lastFrameTime=0;
+let journey=[],journeyIdx=0;
+let hypnoticCountdown=false,hypnoticNum=100;
+let orbScale=0.8,scaleStart=0.8,lastRemainingSecond=-1,idleTimer=null;
+
+const RING_CIRCUMFERENCE=2*Math.PI*140;
+ringFg.style.strokeDasharray=RING_CIRCUMFERENCE;
+ringFg.style.strokeDashoffset=RING_CIRCUMFERENCE;
+
+function cuePhase(){
+  const ph=currentPattern.phases[pIdx];
+  lastRemainingSecond=-1;
+  scaleStart=orbScale;
+
+  // وضع علاج الأرق: عدّ تنويمي + رسائل استرخاء عضلي متجددة
+  if(st.insomniaMode){
+    if(hypnoticCountdown&&ph.k==='out'){
+      phaseWord.textContent=hypnoticNum+' · '+T().txt.out;
+      speakPhase(hypnoticNum+', '+T().speech.out);
+      hypnoticNum--;
+      if(hypnoticNum<0)hypnoticNum=100;
+    }else{
+      phaseWord.textContent=T().txt[ph.k];
+      speakPhase(T().speech[ph.k]);
+    }
+    if(pIdx===0&&T().pmr)aiMsg.textContent=T().pmr[cycleCount%T().pmr.length];
+  }else{
+    phaseWord.textContent=T().txt[ph.k];
+    speakPhase(T().speech[ph.k]);
+  }
+
+  // المؤثر الصوتي
+  if(ph.k==='in'){
+    playCueTone(220,330,ph.s*0.9);
+    triggerHaptic([45,55,45]);
+    spawnRipple();
+  }else if(ph.k==='out'){
+    playCueTone(330,196,ph.s*0.9);
+    triggerHaptic([75]);
+  }else{
+    playCueTone(261.63,261.63,0.7);
+    triggerHaptic([35]);
+  }
+}
+
+function updateCycleDisplay(){
+  const seg=journey.length?T().journeySeg(Math.min(journeyIdx+1,journey.length),journey.length)+' · ':'';
+  cycleInfo.textContent=(appState==='run'||appState==='pause')
+    ?seg+T().cycle(Math.min(cycleCount+1,currentPattern.cycles),currentPattern.cycles)
+    :(journey.length&&appState!=='done'?seg:'');
+}
+
+function stopBreathing(){
+  appState='idle';
+  clearTimeout(idleTimer);
+  document.body.classList.remove('running');
+  orb.style.transition='';
+  orb.style.transform='scale(0.8)';
+  orbScale=0.8;scaleStart=0.8;
+  orbWrap.classList.add('idle');
+  ringFg.style.strokeDashoffset=RING_CIRCUMFERENCE;
+  phaseWord.textContent=T().breathe;
+  phaseCount.textContent='';
+  updateCycleDisplay();
+}
+
+function startBreathing(){
+  clearTimeout(idleTimer);
+  document.body.classList.add('running');
+  orb.style.transition='';
+  orbWrap.classList.remove('idle');
+  appState='run';
+  pIdx=0;phaseTimer=0;cycleCount=0;
+  updateCycleDisplay();
+  cuePhase();
+}
+
+function toggleBreathing(){
+  actx();
+  if(appState==='run'){
+    appState='pause';
+    document.body.classList.remove('running');
+    phaseWord.textContent=T().paused;
+    phaseCount.textContent='';
+    updateCycleDisplay();
+  }else if(appState==='pause'){
+    appState='run';
+    document.body.classList.add('running');
+    cuePhase();
+    updateCycleDisplay();
+  }else{
+    startBreathing();
+  }
+}
+
+function finishSession(){
+  if(journey.length&&journeyIdx<journey.length-1){
+    appState='pause';
+    document.body.classList.remove('running');
+    playCueTone(392,392,0.9);
+    triggerHaptic(60);
+    phaseWord.textContent=T().nextSegWord;
+    phaseCount.textContent='';
+    cycleInfo.textContent=T().journeySeg(journeyIdx+2,journey.length);
+    setTimeout(()=>{
+      if(journey.length&&journeyIdx<journey.length-1){
+        journeyIdx++;
+        currentPattern=journey[journeyIdx].pat;
+        setStageTheme(journey[journeyIdx].theme);
+        startBreathing();
+      }
+    },1600);
+    return;
+  }
+  appState='done';
+  document.body.classList.remove('running');
+  playDoneHarmonic();
+  triggerHaptic([80,50,100,50,150]);
+  for(const p of particles)p.burst=1;
+  for(let i=0;i<3;i++)setTimeout(spawnRipple,i*240);
+
+  phaseWord.textContent=T().done;
+  phaseCount.textContent='';
+  cycleInfo.textContent='';
+  journey=[];journeyIdx=0;
+  aiMsg.textContent=T().doneMsg(currentPattern.cycles);
+  // صندوق دعم مهذب — مرة واحدة يومياً لغير المشتركين
+  if(!isProActive()&&st.tipShownDate!==getTodayKey()){
+    st.tipShownDate=getTodayKey();saveSt();
+    setTimeout(()=>tipSheet.classList.add('open'),2200);
+  }
+
+  orb.style.transition='transform 1.3s ease';
+  orb.style.transform='scale(0.8)';
+  orbScale=0.8;
+  idleTimer=setTimeout(()=>{
+    orb.style.transition='';
+    orbWrap.classList.add('idle');
+  },1350);
+}
+
+// حلقة التحديث المستمرة (Main Animation Tick)
+function mainLoop(now){
+  const dt=lastFrameTime?Math.min(50,now-lastFrameTime):0;
+  lastFrameTime=now;
+
+  if(appState==='run'){
+    phaseTimer+=dt/1000;
+    const ph=currentPattern.phases[pIdx];
+
+    if(phaseTimer>=ph.s){
+      phaseTimer-=ph.s;
+      pIdx++;
+      if(pIdx>=currentPattern.phases.length){
+        pIdx=0;
+        cycleCount++;
+        // تسجيل الإحصائيات
+        st.total++;
+        const today=getTodayKey();
+        st.days[today]=(st.days[today]||0)+1;
+        saveSt();
+        renderQuickStats();
+
+        if(cycleCount>=currentPattern.cycles){
+          finishSession();
+        }else{
+          cuePhase();
+          updateCycleDisplay();
+        }
+      }else{
+        cuePhase();
+      }
+    }
+
+    if(appState==='run'){
+      const curPhase=currentPattern.phases[pIdx];
+      const progress=Math.min(1,phaseTimer/curPhase.s);
+
+      if(curPhase.k==='in'){
+        const tgt=scaleStart>0.97?1.05:1;
+        orbScale=scaleStart+(tgt-scaleStart)*easeInOut(progress);
+      }else if(curPhase.k==='out'){
+        orbScale=scaleStart-(scaleStart-MIN_SCALE)*easeInOut(progress);
+      }else{
+        orbScale=scaleStart+0.018*Math.sin(progress*Math.PI);
+      }
+
+      orb.style.transform=`scale(${orbScale.toFixed(4)})`;
+      ringFg.style.strokeDashoffset=RING_CIRCUMFERENCE*(1-progress);
+
+      const remaining=Math.ceil(curPhase.s-phaseTimer);
+      if(remaining!==lastRemainingSecond){
+        lastRemainingSecond=remaining;
+        phaseCount.textContent=remaining;
+      }
+    }
+  }
+
+  if(!document.hidden)drawStars(now);
+  requestAnimationFrame(mainLoop);
+}
+
+/* =========================================================================
+   9. حقل النجوم التفاعلي (Interactive Breathing Canvas Stars)
+   ========================================================================= */
+const cv=$('#stars'),cx=cv.getContext('2d');
+const REDUCED_MOTION=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* بارالاكس ناعم: كل طبقات المشهد تطفو مع حركة المؤشر (ديسكتوب) */
+let parX=0,parY=0,parTX=0,parTY=0;
+addEventListener('pointermove',e=>{
+  if(REDUCED_MOTION||document.hidden)return;
+  parTX=(e.clientX/window.innerWidth-.5)*2;
+  parTY=(e.clientY/window.innerHeight-.5)*2;
+  document.documentElement.style.setProperty('--px',parTX.toFixed(3));
+  document.documentElement.style.setProperty('--py',parTY.toFixed(3));
+},{passive:true});
+
+/* ── بارالاكس الميل الحقيقي (Device Orientation) — تفعيل صريح فقط، خصوصية كاملة ──
+   لا تُخزَّن قراءات المستشعر ولا تُرسل لأي خادم أو أي جهة؛ تُستخدم فوراً لحساب
+   إزاحة الطبقات البصرية فقط، وتتوقف تماماً بمجرد تعطيل الميزة أو مغادرة الصفحة. */
+let tiltBase=null,tiltActive=false,tiltGranted=false;
+function handleTilt(e){
+  if(REDUCED_MOTION||document.hidden||e.beta===null||e.gamma===null)return;
+  if(!tiltBase)tiltBase={b:e.beta,g:e.gamma}; // معايرة على وضعية الإمساك الحالية
+  const dG=Math.max(-1,Math.min(1,(e.gamma-tiltBase.g)/26));
+  const dB=Math.max(-1,Math.min(1,(e.beta-tiltBase.b)/26));
+  document.documentElement.style.setProperty('--px',dG.toFixed(3));
+  document.documentElement.style.setProperty('--py',dB.toFixed(3));
+}
+function stopTilt(){
+  tiltActive=false;tiltBase=null;
+  window.removeEventListener('deviceorientation',handleTilt);
+  document.documentElement.style.setProperty('--px','0');
+  document.documentElement.style.setProperty('--py','0');
+}
+async function startTilt(){
+  if(typeof DeviceOrientationEvent!=='undefined'&&typeof DeviceOrientationEvent.requestPermission==='function'){
+    if(!tiltGranted){
+      try{
+        const res=await DeviceOrientationEvent.requestPermission();
+        if(res!=='granted')return false;
+        tiltGranted=true;
+      }catch(e){return false}
+    }
+  }else if(typeof DeviceOrientationEvent==='undefined'){
+    return false; // المتصفح لا يدعم الميزة — لا وعود وهمية
+  }else{
+    tiltGranted=true;
+  }
+  tiltBase=null;tiltActive=true;
+  window.addEventListener('deviceorientation',handleTilt,{passive:true});
+  return true;
+}
+const tiltParallaxBtn=$('#tiltParallaxBtn');
+function refreshTiltBtnUI(){
+  tiltParallaxBtn.classList.toggle('active',tiltActive);
+  tiltParallaxBtn.textContent=(tiltActive?'✓ ':'🌌 ')+T().tiltBtn;
+}
+tiltParallaxBtn.addEventListener('click',async()=>{
+  if(tiltActive){
+    stopTilt();st.tiltParallax=false;saveSt();refreshTiltBtnUI();return;
+  }
+  const ok=await startTilt();
+  if(ok){st.tiltParallax=true;saveSt();refreshTiltBtnUI()}
+  else{typeMsg(aiMsg,T().tiltUnsupported)}
+});
+refreshTiltBtnUI(); // إظهار حالة الزر الأولية دون تفعيل تلقائي (يتطلب لمسة صريحة لاحقاً)
+/* لا نُفعّلها تلقائياً عند فتح التطبيق حتى لو كانت مفعّلة سابقاً — لأن iOS يتطلب
+   لمسة مستخدم صريحة لكل جلسة لمنح صلاحية المستشعر، فنعرض الزر جاهزاً فقط */
+let canvasW=0,canvasH=0;
+function resizeCanvas(){
+  const dpr=Math.min(2,window.devicePixelRatio||1);
+  canvasW=window.innerWidth;canvasH=window.innerHeight;
+  cv.width=canvasW*dpr;cv.height=canvasH*dpr;
+  cv.style.width=canvasW+'px';cv.style.height=canvasH+'px';
+  cx.setTransform(dpr,0,0,dpr,0,0);
+}
+window.addEventListener('resize',resizeCanvas);
+resizeCanvas();
+
+const particles=[];
+for(let i=0;i<125;i++){
+  particles.push({
+    a:Math.random()*Math.PI*2,
+    distRate:0.5+Math.random()*0.85,
+    size:0.6+Math.random()*1.5,
+    baseAlpha:0.2+Math.random()*0.5,
+    twinkleSpeed:0.4+Math.random()*1.2,
+    phase:Math.random()*Math.PI*2,
+    rotSpeed:(Math.random()-0.5)*0.00025,
+    color:Math.random()<0.72?'207,233,255':'159,240,221',
+    burst:0
+  });
+}
+
+/* ── شهب عابرة: نيزك خفيف يعبر السماء كل 7-15 ثانية ── */
+const meteors=[];
+let nextMeteorAt=performance.now()+7000+Math.random()*8000;
+function spawnMeteor(){
+  const fromLeft=Math.random()<.5;
+  meteors.push({
+    x:fromLeft?-40:canvasW*(.3+Math.random()*.7),
+    y:-30+Math.random()*canvasH*.25,
+    vx:(fromLeft?1:-1)*(5.5+Math.random()*3.5),
+    vy:2.6+Math.random()*1.8,
+    life:1,len:90+Math.random()*70
+  });
+}
+
+/* ── موجات التنفّس: حلقة تنبعث من الكرة مع كل شهيق ── */
+const ripples=[];
+function spawnRipple(){
+  if(REDUCED_MOTION)return;
+  if(ripples.length>4)ripples.shift();
+  ripples.push({t:0});
+}
+
+function drawStars(time){
+  cx.clearRect(0,0,canvasW,canvasH);
+  const r=orbWrap.getBoundingClientRect();
+  if(!r.width)return;
+  const ox=r.left+r.width/2,oy=r.top+r.height/2,baseR=r.width/2;
+  const expansion=Math.max(0,Math.min(1,(orbScale-MIN_SCALE)/(1-MIN_SCALE)));
+
+  /* تنعيم البارالاكس — تتبّع بطيء يشبه الطفو */
+  parX+=(parTX-parX)*.045;parY+=(parTY-parY)*.045;
+
+  /* الشهب العابرة */
+  if(!REDUCED_MOTION&&time>nextMeteorAt){spawnMeteor();nextMeteorAt=time+7000+Math.random()*9000}
+  for(let i=meteors.length-1;i>=0;i--){
+    const mt=meteors[i];
+    mt.x+=mt.vx;mt.y+=mt.vy;mt.life-=.011;
+    if(mt.life<=0||mt.y>canvasH+40){meteors.splice(i,1);continue}
+    const tx=mt.x-mt.vx*mt.len/9,ty=mt.y-mt.vy*mt.len/9;
+    const gr=cx.createLinearGradient(mt.x,mt.y,tx,ty);
+    gr.addColorStop(0,'rgba(225,246,255,'+(.75*mt.life).toFixed(3)+')');
+    gr.addColorStop(1,'rgba(225,246,255,0)');
+    cx.strokeStyle=gr;cx.lineWidth=1.6;cx.lineCap='round';
+    cx.beginPath();cx.moveTo(mt.x,mt.y);cx.lineTo(tx,ty);cx.stroke();
+  }
+
+  /* موجات الشهيق المتناثرة من الكرة — بلون الثيم الحالي */
+  const rippleHue=((168+currentHue)%360+360)%360;
+  for(let i=ripples.length-1;i>=0;i--){
+    const rp=ripples[i];
+    rp.t+=.007;
+    if(rp.t>=1){ripples.splice(i,1);continue}
+    const a=(1-rp.t)*(1-rp.t)*.4;
+    cx.strokeStyle='hsla('+rippleHue+',72%,76%,'+a.toFixed(3)+')';
+    cx.lineWidth=1.4;
+    cx.beginPath();cx.arc(ox,oy,baseR*(1+rp.t*1.55),0,Math.PI*2);cx.stroke();
+  }
+
+  for(const p of particles){
+    if(!REDUCED_MOTION)p.a+=p.rotSpeed*16;
+    if(p.burst>0.01)p.burst*=0.93;else p.burst=0;
+    const radius=baseR*(0.62+0.68*expansion)*p.distRate+p.burst*120;
+    const x=ox+Math.cos(p.a)*radius+parX*15*p.distRate;
+    const y=oy+Math.sin(p.a)*radius*0.92+parY*10*p.distRate;
+    const alpha=p.baseAlpha*(0.45+0.55*(0.5+0.5*Math.sin(time*0.0012*p.twinkleSpeed+p.phase)));
+
+    cx.fillStyle=`rgba(${p.color},${alpha.toFixed(3)})`;
+    cx.beginPath();
+    cx.arc(x,y,p.size,0,Math.PI*2);
+    cx.fill();
+  }
+}
+
+/* =========================================================================
+   10. أداة فحص النبض والتوتر السريع (Pulse & Stress Tap Tool)
+   ========================================================================= */
+let tapTimestamps=[];
+const heartTapBtn=$('#heartTapBtn'),bpmDisplay=$('#bpmDisplay'),pulseFeedback=$('#pulseFeedback'),
+stressSlider=$('#stressSlider'),stressVal=$('#stressVal');
+
+heartTapBtn.addEventListener('click',()=>{
+  const now=Date.now();
+  heartTapBtn.classList.add('beat');
+  setTimeout(()=>heartTapBtn.classList.remove('beat'),140);
+  triggerHaptic(40);
+  tapTimestamps.push(now);
+  if(tapTimestamps.length>8)tapTimestamps.shift();
+
+  if(tapTimestamps.length>=2){
+    const intervals=[];
+    for(let i=1;i<tapTimestamps.length;i++){
+      intervals.push(tapTimestamps[i]-tapTimestamps[i-1]);
+    }
+    const avg=intervals.reduce((a,b)=>a+b,0)/intervals.length;
+    if(avg>350&&avg<1800){ // 33 to 170 BPM
+      const bpm=Math.round(60000/avg);
+      bpmDisplay.textContent=`${bpm} BPM`;
+      pulseFeedback.textContent=T().pulseReady(bpm);
+      st.lastPulse=bpm;
+    }
+  }
+});
+
+stressSlider.addEventListener('input',()=>{
+  stressVal.textContent=`${stressSlider.value} / 10`;
+  st.lastStress=+stressSlider.value;
+});
+
+$('#savePulseBtn').addEventListener('click',()=>{
+  saveSt();
+  pulseSheet.classList.remove('open');
+  // اقتراح تمرين مناسب
+  if(st.lastPulse&&st.lastPulse>85){
+    setBreathingPattern('calm');
+    aiMsg.textContent=T().fb.calm;
+  }else{
+    setBreathingPattern('coherent');
+    aiMsg.textContent=T().fb.coherent;
+  }
+});
+
+/* =========================================================================
+   11. منشئ أنماط التنفس المخصص (Custom Rhythm Builder)
+   ========================================================================= */
+const bldInSlider=$('#bldInSlider'),bldHold1Slider=$('#bldHold1Slider'),
+bldOutSlider=$('#bldOutSlider'),bldHold2Slider=$('#bldHold2Slider'),bldCyclesSlider=$('#bldCyclesSlider');
+
+function updateBuilderValues(){
+  $('#bldInVal').textContent=`${bldInSlider.value} ${st.lang==='ar'?'ث':'s'}`;
+  $('#bldHold1Val').textContent=`${bldHold1Slider.value} ${st.lang==='ar'?'ث':'s'}`;
+  $('#bldOutVal').textContent=`${bldOutSlider.value} ${st.lang==='ar'?'ث':'s'}`;
+  $('#bldHold2Val').textContent=`${bldHold2Slider.value} ${st.lang==='ar'?'ث':'s'}`;
+  $('#bldCyclesVal').textContent=bldCyclesSlider.value;
+}
+[bldInSlider,bldHold1Slider,bldOutSlider,bldHold2Slider,bldCyclesSlider].forEach(el=>el.addEventListener('input',updateBuilderValues));
+
+$('#applyCustomBtn').addEventListener('click',()=>{
+  const phases=[{k:'in',s:+bldInSlider.value}];
+  if(+bldHold1Slider.value>0)phases.push({k:'hold',s:+bldHold1Slider.value});
+  phases.push({k:'out',s:+bldOutSlider.value});
+  if(+bldHold2Slider.value>0)phases.push({k:'hold',s:+bldHold2Slider.value});
+
+  st.customPattern={
+    name:st.lang==='ar'?'نمطي الخاص':'Custom',
+    cycles:+bldCyclesSlider.value,
+    phases
+  };
+  saveSt();
+
+  customChip.hidden=false;
+  customChip.querySelector('span').textContent=`${bldInSlider.value}·${bldHold1Slider.value}·${bldOutSlider.value}`;
+  setBreathingPattern('custom');
+  builderSheet.classList.remove('open');
+});
+
+/* =========================================================================
+   12. سجل الإنجازات الأسبوعي والرسم البياني (Weekly Streak & Stats)
+   ========================================================================= */
+function calcStreak(){
+  const today=getTodayKey();
+  let streak=0;
+  const d=new Date();
+  if(!(st.days[today]>0))d.setDate(d.getDate()-1);
+  const check=()=>{const y=d.getFullYear(),m=String(d.getMonth()+1).padStart(2,'0'),day=String(d.getDate()).padStart(2,'0');return `${y}-${m}-${day}`};
+  while(st.days[check()]>0){
+    streak++;
+    d.setDate(d.getDate()-1);
+  }
+  return streak;
+}
+
+function renderQuickStats(){
+  const today=getTodayKey();
+  const streak=calcStreak();
+  quickStats.textContent=T().stats(st.days[today]||0,streak);
+}
+
+function renderWeeklyBoard(){
+  const streak=calcStreak();
+  $('#streakStat').textContent=streak;
+  $('#todayBreathsStat').textContent=st.days[getTodayKey()]||0;
+  $('#totalBreathsStat').textContent=st.total||0;
+
+  const chart=$('#weekChart');
+  chart.innerHTML='';
+  const daysLabels=st.lang==='ar'?['سبت','أحد','إثنين','ثلاثاء','أربعاء','خميس','جمعة']:['Sat','Sun','Mon','Tue','Wed','Thu','Fri'];
+  
+  // آخر 7 أيام
+  const history=[];
+  for(let i=6;i>=0;i--){
+    const d=new Date();
+    d.setDate(d.getDate()-i);
+    const k=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+    const dayOfWeek=(d.getDay()+1)%7; // السبت = 0
+    history.push({label:daysLabels[dayOfWeek],count:st.days[k]||0});
+  }
+
+  const max=Math.max(10,...history.map(h=>h.count));
+  history.forEach(h=>{
+    const col=document.createElement('div');
+    col.className='chart-col';
+    const heightPercent=Math.max(6,Math.min(100,(h.count/max)*100));
+    col.innerHTML=`
+      <div class="chart-bar-wrap">
+        <div class="chart-bar" style="height:${heightPercent}%" title="${h.count} breaths"></div>
+      </div>
+      <div class="chart-day">${h.label}</div>
+    `;
+    chart.appendChild(col);
+  });
+}
+
+$('#resetDataBtn').addEventListener('click',()=>{
+  if(confirm(T().confirmReset)){
+    st.days={};st.total=0;saveSt();
+    renderQuickStats();renderWeeklyBoard();
+  }
+});
+
+/* =========================================================================
+   13. المدرب الذكي مع دعم التحدث الصوتي (AI Coach with Voice Input)
+   ========================================================================= */
+let recognition=null;
+if('webkitSpeechRecognition' in window || 'SpeechRecognition' in window){
+  const SpeechRec=window.SpeechRecognition||window.webkitSpeechRecognition;
+  recognition=new SpeechRec();
+  recognition.continuous=false;
+  recognition.interimResults=false;
+  recognition.onresult=(e)=>{
+    const transcript=e.results[0][0].transcript;
+    moodInput.value=transcript;
+    micBtn.classList.remove('listening');
+  };
+  recognition.onerror=()=>{micBtn.classList.remove('listening')};
+  recognition.onend=()=>{micBtn.classList.remove('listening')};
+}
+
+micBtn.addEventListener('click',()=>{
+  if(!recognition){alert('المتصفح لا يدعم الإدخال الصوتي المباشر.');return}
+  recognition.lang=st.lang==='ar'?'ar-SA':'en-US';
+  micBtn.classList.add('listening');
+  recognition.start();
+});
+
+const SENTIMENT_HEURISTICS=[
+  {re:/ذعر|بانيك|صدمة|بكاء|خنقة|نوبة|panic|hysterical|breakdown|crying/i,p:'sigh',msgKey:'sigh'},
+  {re:/قلق|توتر|امتحان|مقابلة|خوف|مهم|مرتبك|nervous|anxious|anxiety|stressed|interview/i,p:'calm',msgKey:'calm'},
+  {re:/غضب|عصبية|نرفزة|غيظ|زعل|متضايق|angry|furious|mad|irritated/i,p:'box',msgKey:'box'},
+  {re:/تعب|إرهاق|نعاس|خمول|طاقتي|كسل|tired|exhausted|drained|sleepy/i,p:'energy',msgKey:'energy'},
+  {re:/أرق|مش عارف أنام|سهران|insomnia|can't sleep|bedtime/i,p:'calm',msgKey:'calm'},
+  {re:/نبض|خفقان|تشتت|قلبي|heart|coherence|focus/i,p:'coherent',msgKey:'coherent'}
+];
+
+// تحقق صارم من رد الـ AI (حدود آمنة لكل مرحلة)
+const AI_TIMEOUT=4500;
+function validAIPattern(j){try{
+  if(!Array.isArray(j.phases)||j.phases.length<1||j.phases.length>4)return null;
+  if(j.phases[0].k!=='in'||j.phases[j.phases.length-1].k!=='out')return null;
+  const LIM={in:[2,8],hold:[0,8],out:[2,10]},ps=[];
+  for(const ph of j.phases){const k=ph.k,sec=Math.round(Number(ph.s));
+    if(!LIM[k]||!isFinite(sec)||sec<LIM[k][0]||sec>LIM[k][1])return null;
+    ps.push({k,s:sec})}
+  const cyc=Math.min(6,Math.max(2,Math.round(Number(j.cycles)||4)));
+  return{name:String(j.name||T().chips.custom).slice(0,16),
+    message:String(j.message||'').slice(0,140),cycles:cyc,phases:ps}
+}catch(e){return null}}
+
+// رحلة ذكية متعددة المراحل (2-4 أنماط متتابعة)
+function validAIJourney(j){try{
+  if(!Array.isArray(j.journey)||j.journey.length<2||j.journey.length>4)return null;
+  const segs=[];
+  for(const seg of j.journey){
+    if(seg&&PATTERNS[seg.pattern]){
+      const cyc=Math.min(8,Math.max(2,Math.round(Number(seg.cycles)||3)));
+      segs.push({theme:seg.pattern,pat:{cycles:cyc,phases:PATTERNS[seg.pattern].phases}});
+    }else{
+      const p=validAIPattern(seg);
+      if(!p)return null;
+      segs.push({theme:'custom',pat:p,name:p.name});
+    }
+  }
+  return{name:String(j.name||'').slice(0,24),message:String(j.message||'').slice(0,140),journey:segs}
+}catch(e){return null}}
+
+// عرض متدفّق (typewriter) للردود
+let typeTimer=null;
+function typeMsg(el,txt){
+  clearInterval(typeTimer);
+  el.textContent='';
+  let i=0;
+  typeTimer=setInterval(()=>{
+    i+=2;
+    el.textContent=txt.slice(0,i);
+    if(i>=txt.length)clearInterval(typeTimer);
+  },28);
+}
+
+// تشغيل رحلة متعددة المراحل
+function startJourney(segs,note){
+  journey=segs;journeyIdx=0;
+  currentPattern=journey[0].pat;
+  setStageTheme(journey[0].theme);
+  $$('.chip[data-p]').forEach(c=>c.classList.remove('active'));
+  typeMsg(aiMsg,note||T().fb.def);
+  stopBreathing();
+  updateCycleDisplay();
+}
+
+// ذاكرة المدرب: سياق المحادثات السابقة
+function coachContext(sys){
+  const log=st.coachLog.slice(-3);
+  if(!log.length)return sys;
+  const hist=log.map(e=>'User: '+e.m+'\nCoach: '+e.r).join('\n');
+  return sys+'\nPrevious conversation (consider it):\n'+hist+'\n';
+}
+
+// المرشّح المحلي الفوري — يركّب رحلة كاملة بدون إنترنت
+const LOCAL_PLANS={sigh:['sigh','coherent','calm'],calm:['calm','coherent','calm'],box:['box','coherent','calm'],energy:['energy','box','coherent'],coherent:['coherent','calm','coherent']};
+function localCoach(mood){
+  const matched=SENTIMENT_HEURISTICS.find(item=>item.re.test(mood));
+  const plan=matched?(LOCAL_PLANS[matched.p]||['sigh','coherent','calm']):['box','coherent','calm'];
+  startJourney(plan.map((k,i)=>({theme:k,pat:{cycles:([3,4,4][i]||4),phases:PATTERNS[k].phases}})),matched?T().fb[matched.msgKey]:T().fb.def);
+  return true;
+}
+
+async function consultAICoach(){
+  const mood=moodInput.value.trim();
+  if(!mood)return;
+  moodGo.disabled=true;
+  moodGo.textContent=T().loading;
+  let aiObj=null;
+  try{
+    const sys=coachContext(st.lang==='ar'
+      ?'أنت "نَفَس"، مدرب تنفس خبير. ردّ بـ JSON فقط بدون أي شرح أو markdown، باختيار واحد من شكلين. (أ) نمط واحد: {"name":"اسم النمط","message":"جملة دافئة قصيرة لا تتجاوز 12 كلمة","phases":[{"k":"in","s":4},{"k":"hold","s":4},{"k":"out","s":6}],"cycles":4}. (ب) رحلة متعددة المراحل: {"name":"اسم الرحلة","message":"جملة دافئة","journey":[{"pattern":"sigh","cycles":3},{"pattern":"coherent","cycles":4},{"pattern":"calm","cycles":4}] حيث pattern أحد calm|box|coherent|sigh|energy. القيود: k أحد in|hold|out فقط، s عدد الثواني (شهيق 2-8، حبس 0-8، زفير 2-10)، cycles من 2 إلى 6، أول مرحلة in وآخر مرحلة out. اكتب name وmessage بالعربية. إحساس المستخدم: '
+      :'You are "Nafas", an expert breathing coach. Reply ONLY with minified JSON, no markdown, choosing ONE of two shapes. (a) single pattern: {"name":"pattern name","message":"one warm sentence, max 12 words","phases":[{"k":"in","s":4},{"k":"hold","s":4},{"k":"out","s":6}],"cycles":4}. (b) multi-phase journey: {"name":"journey name","message":"warm sentence","journey":[{"pattern":"sigh","cycles":3},{"pattern":"coherent","cycles":4},{"pattern":"calm","cycles":4}]} where pattern is one of calm|box|coherent|sigh|energy. Constraints: k is one of in|hold|out only, s is seconds (in 2-8, hold 0-8, out 2-10), cycles 2-6, first phase in and last phase out. Write name and message in English. The user\'s feeling: ');
+    let txt='';
+    try{
+      if(localEngine){
+        // ذكاء محلي 100% داخل الجهاز (WebGPU)
+        const chunks=[];
+        const stream=await localEngine.chat.completions.create({
+          messages:[{role:'system',content:sys},{role:'user',content:mood}],
+          stream:true,temperature:0.6,max_tokens:170
+        });
+        for await(const c of stream){const d=(c.choices&&c.choices[0]&&c.choices[0].delta&&c.choices[0].delta.content)||'';if(d)chunks.push(d)}
+        txt=chunks.join('');
+      }else{
+        // ذكاء سحابي مجاني (مع مهلة قصيرة)
+        try{
+          const ctl=new AbortController(),to=setTimeout(()=>ctl.abort(),AI_TIMEOUT);
+          const res=await fetch('https://text.pollinations.ai/'+encodeURIComponent(sys+mood)+'?model=openai',{signal:ctl.signal});
+          clearTimeout(to);
+          txt=await res.text();
+        }catch(e){}
+        let mm=txt.match(/\{[\s\S]*\}/);
+        if(!mm){
+          try{
+            const ctl2=new AbortController(),to2=setTimeout(()=>ctl2.abort(),AI_TIMEOUT);
+            const r2=await fetch('https://text.pollinations.ai/openai',{method:'POST',
+              headers:{'Content-Type':'application/json'},signal:ctl2.signal,
+              body:JSON.stringify({model:'openai',messages:[{role:'user',content:sys+mood}]})});
+            clearTimeout(to2);
+            const j2=await r2.json();
+            txt=(j2&&j2.choices&&j2.choices[0]&&j2.choices[0].message&&j2.choices[0].message.content)||'';
+          }catch(e){}
+        }
+      }
+    }catch(e){}
+    const mt=txt.match(/\{[\s\S]*\}/);
+    if(mt){try{const j=JSON.parse(mt[0]);aiObj=validAIJourney(j)||validAIPattern(j)}catch(e){}}
+    // ذاكرة المدرب: آخر 6 رسائل
+    st.coachLog.push({m:mood,r:(aiObj&&(aiObj.message||aiObj.name))||''});
+    st.coachLog=st.coachLog.slice(-6);saveSt();
+  }catch(e){}
+  if(aiObj){
+    if(aiObj.journey){
+      startJourney(aiObj.journey,aiObj.message||T().fb.def);
+    }else{
+      st.customPattern=aiObj;saveSt();
+      customChip.hidden=false;
+      customChip.querySelector('span').textContent=aiObj.phases.map(ph=>ph.s).join('·');
+      journey=[];journeyIdx=0;
+      setBreathingPattern('custom');
+      typeMsg(aiMsg,aiObj.message||T().fb.def);
+    }
+  }else{
+    localCoach(mood);
+  }
+  aiSheet.classList.remove('open');
+  moodInput.value='';
+  moodGo.disabled=false;
+  moodGo.textContent=T().go;
+}
+
+moodGo.addEventListener('click',consultAICoach);
+moodInput.addEventListener('keydown',e=>{if(e.key==='Enter')consultAICoach()});
+moodSkip.addEventListener('click',()=>aiSheet.classList.remove('open'));
+
+/* =========================================================================
+   14. تبديل اللغات وتحديث عناصر الواجهة (i18n Manager)
+   ========================================================================= */
+/* ── الثيمات البصرية: هوية لونية لكل نمط تنفّس (جرافكس فقط، بلا أي منطق) ── */
+const THEME_HUES={calm:0,box:35,coherent:95,sigh:-55,energy:-145,custom:-110,insomnia:-125};
+let currentHue=0;
+function setStageTheme(key){
+  currentHue=THEME_HUES[key]||0;
+  document.body.dataset.theme=key;
+}
+
+function setBreathingPattern(key){
+  if(key==='custom'&&st.customPattern){
+    currentPattern=st.customPattern;
+  }else{
+    currentPattern=PATTERNS[key]||PATTERNS.calm;
+  }
+  $$('.chip[data-p]').forEach(c=>c.classList.toggle('active',c.dataset.p===key));
+  setStageTheme(key);
+  if(key==='insomnia'){
+    st.insomniaMode=true;
+    document.body.classList.add('insomnia-mode');
+  }else{
+    st.insomniaMode=false;
+    hypnoticCountdown=false;
+    document.body.classList.remove('insomnia-mode');
+  }
+  saveSt();
+  journey=[];journeyIdx=0;
+  stopBreathing();
+}
+
+function applyLanguage(){
+  const t=T();
+  document.documentElement.dir=t.dir;
+  document.documentElement.lang=st.lang;
+  document.title=t.title;
+  $('#pwaBadge').textContent=t.badge;
+  $('#appTag').textContent=t.tag;
+  langBtn.textContent=st.lang==='ar'?'EN':'عربي';
+
+  // الرقائق
+  $$('.chip[data-p]').forEach(c=>{
+    const k=c.dataset.p;
+    if(t.chips[k]){
+      c.childNodes[0].textContent=t.chips[k]+' ';
+      c.title=t.hints[k]||'';
+    }
+  });
+  $('#aiBtn').textContent=t.chips.ai;
+
+  // أشرطة الأدوات
+  $('#mixerBtnLbl').textContent=t.tools.mixer;
+  $('#pulseBtnLbl').textContent=t.tools.pulse;
+  $('#builderBtnLbl').textContent=t.tools.builder;
+  $('#statsBtnLbl').textContent=t.tools.stats;
+
+  // نافذة الذكاء الاصطناعي
+  $('#aiSheetH').textContent=t.sheetH;
+  $('#aiSheetP').textContent=t.sheetP;
+  moodInput.placeholder=t.ph;
+  moodGo.textContent=t.go;
+  moodSkip.textContent=t.skip;
+
+  // الخلاط
+  $('#mixerHeadTitle').textContent=t.mixerHead;
+  $('#lblRain').textContent=t.tracks.rain;
+  $('#lblOcean').textContent=t.tracks.ocean;
+  $('#lblBrown').textContent=t.tracks.brown;
+  $('#lblOm').textContent=t.tracks.om;
+  $('#lblTheta').textContent=t.tracks.theta;
+  $('#lblSolfeggio').textContent=t.tracks.solfeggio;
+  $('#lblTimer').textContent=t.lblTimer;
+  $('#stopAllAmbBtn').textContent=t.stopAll;
+  $$('#ambTimer option').forEach((opt,i)=>{if(t.timerOpts[i])opt.textContent=t.timerOpts[i]});
+
+  // فاحص النبض
+  $('#pulseTitle').textContent=t.pulseTitle;
+  $('#pulseDesc').textContent=t.pulseDesc;
+  $('#pulseFeedback').textContent=t.pulseHint;
+  $('#lblStress').textContent=t.pulseStress;
+  $('#savePulseBtn').textContent=t.pulseSave;
+  $('#closePulseBtn').textContent=t.close;
+
+  // منشئ الأنماط
+  $('#bldTitle').textContent=t.bldTitle;
+  $('#bldDesc').textContent=t.bldDesc;
+  $('#bldIn').textContent=t.bldIn;
+  $('#bldHold1').textContent=t.bldHold1;
+  $('#bldOut').textContent=t.bldOut;
+  $('#bldHold2').textContent=t.bldHold2;
+  $('#bldCycles').textContent=t.bldCycles;
+  $('#applyCustomBtn').textContent=t.applySave;
+  $('#closeBuilderBtn').textContent=t.cancel;
+
+  // الإحصائيات
+  $('#statsTitle').textContent=t.statsTitle;
+  $('#statsDesc').textContent=t.statsDesc;
+  $('#lblStreak').textContent=t.statStreak;
+  $('#lblTodayBr').textContent=t.statToday;
+  $('#lblTotalBr').textContent=t.statTotal;
+  $('#lblWeeklyActivity').textContent=t.weeklyActivity;
+  $('#closeStatsBtn').textContent=t.continueBreathe;
+  $('#resetDataBtn').textContent=t.resetData;
+  $('#offlineNotice').textContent=t.offlineNotice;
+  sceneBtn.title=t.sceneBtnL;sceneBtn.setAttribute('aria-label',t.sceneBtnL);
+  $('#sceneSheetH').textContent=t.sceneH;
+  $('#sceneSheetP').textContent=t.sceneP;
+  $$('.scene-card').forEach(b=>{b.querySelector('span').textContent=t.sceneNames[b.dataset.scene]||b.dataset.scene});
+  camBtn.title=t.camTitleL;camBtn.setAttribute('aria-label',t.camTitleL);
+  $('#camHeadTitle').textContent=t.camTitleL;
+  $('#camNote').textContent=t.camNote;
+  $('#localAiL').textContent=t.localAiL;
+  setLocalStatus(localEngine?'ready':'off');
+  // الترقية والدعم وعيادة الأرق
+  $('#proBadgeText').textContent=t.proBadge;
+  $('#proTitle').textContent=t.insomniaH&&t.proTitle||t.proTitle;
+  $('#proSub').textContent=t.proSub;
+  $('#perk1').textContent=t.perk1;$('#perk2').textContent=t.perk2;
+  $('#perk3').textContent=t.perk3;$('#perk4').textContent=t.perk4;
+  $('#buyProBtn').textContent=t.buyPro;
+  $('#trialBtn').textContent=t.trial;
+  $('#proNote').textContent=t.proNote;
+  $('#haveKey').textContent=t.haveKey;
+  $('#licenseFeedback').textContent='';
+  $('#tipTitle').textContent=t.tipTitle;
+  $('#tipSub').textContent=t.tipSub;
+  $('#tipDesc').textContent=t.tipDesc;
+  $('#tipLblCoffee').textContent=t.tipCoffee;
+  $('#tipLblSuper').textContent=t.tipSuper;
+  $('#tipLblAngel').textContent=t.tipAngel;
+  $('#sendTipBtn').textContent=t.sendTip;
+  $('#insomniaBtnLbl').textContent=t.tools.insomnia;
+  $('#startJourneyBtn').textContent=t.journeyBtn;
+  $('#insomniaModalH').textContent=t.insomniaH;
+  $('#insomniaModalSub').textContent=t.insomniaSub;
+  $('#insomniaBannerTxt').innerHTML=t.insomniaBanner;
+  $('#cbtStep1').innerHTML=t.cbt1;
+  $('#cbtStep2').innerHTML=t.cbt2;
+  $('#cbtStep3').innerHTML=t.cbt3;
+  $('#startInsomniaTherapyBtn').textContent=t.insomniaStart;
+  $('#toggleHypnoticCountdownBtn').textContent=t.insomniaHypnotic;
+  $('#lblFire').innerHTML=t.tracks.fire+' <span class="tag-pro">PRO</span>';
+  $('#lblDelta').innerHTML=t.tracks.delta+' <span class="tag-pro">PRO</span>';
+  $('#lbl432').innerHTML=t.tracks.pure432+' <span class="tag-pro">PRO</span>';
+  const tlabels=[['120',t.timer2],['240',t.timer4],['480',t.timer8]];
+  tlabels.forEach(pr=>{
+    const o=ambTimer.querySelector('option[value="'+pr[0]+'"]');
+    if(o)o.textContent=pr[1];
+  });
+  updateProUI();
+
+  $$('.ad-demo').forEach(d=>d.textContent=t.adDemo);
+
+  // تحديث النصوص الفورية
+  if(appState==='idle'||appState==='done')phaseWord.textContent=t.breathe;
+  else if(appState==='pause')phaseWord.textContent=t.paused;
+  else phaseWord.textContent=t.txt[currentPattern.phases[pIdx].k];
+
+  updateBuilderValues();
+  renderQuickStats();
+  renderWeeklyBoard();
+}
+
+langBtn.addEventListener('click',()=>{
+  st.lang=st.lang==='ar'?'en':'ar';
+  saveSt();
+  applyLanguage();
+});
+
+/* =========================================================================
+   15. وضع النوم الليلي و قفل الشاشة (Night Mode & Screen Wake Lock)
+   ========================================================================= */
+let wakeLockSentinel=null;
+async function setNightMode(enable){
+  st.night=enable;saveSt();
+  document.body.classList.toggle('night',enable);
+  nightBtn.classList.toggle('active',enable);
+
+  if(enable&&'wakeLock' in navigator){
+    try{wakeLockSentinel=await navigator.wakeLock.request('screen')}catch(e){}
+  }else if(!enable&&wakeLockSentinel){
+    try{wakeLockSentinel.release();wakeLockSentinel=null}catch(e){}
+  }
+}
+
+nightBtn.addEventListener('click',()=>setNightMode(!st.night));
+document.addEventListener('visibilitychange',()=>{
+  if(document.visibilityState==='visible'&&st.night&&!wakeLockSentinel&&'wakeLock' in navigator){
+    navigator.wakeLock.request('screen').then(s=>{wakeLockSentinel=s}).catch(e=>{});
+  }
+  // توفير الطاقة: إيقاف كل رسوم/بارالاكس الخلفية بالكامل عند غياب التبويب
+  document.body.classList.toggle('tab-hidden',document.hidden);
+  if(document.hidden){
+    if(tiltActive)stopTilt();
+  }else if(st.tiltParallax&&!tiltActive){
+    startTilt(); // استئناف بلا طلب إذن جديد — الإذن ممنوح لهذه الجلسة أصلاً
+  }
+});
+
+/* =========================================================================
+   15.5 خلفيات التأمّل (Meditation Scenes) — مشاهد مرسومة بالكود للنوم والاسترخاء
+   ========================================================================= */
+const SCENES=['default','ocean','desert','mountains','forest','moonlake'];
+function setScene(key){
+  if(!SCENES.includes(key))key='default';
+  st.scene=key;saveSt();
+  document.body.dataset.scene=key;
+  $$('.scene-card').forEach(b=>{
+    const on=b.dataset.scene===key;
+    b.classList.toggle('active',on);
+    b.setAttribute('aria-pressed',String(on));
+  });
+}
+sceneBtn.addEventListener('click',()=>sceneSheet.classList.add('open'));
+$('#closeSceneBtn').addEventListener('click',()=>sceneSheet.classList.remove('open'));
+$$('.scene-card').forEach(b=>b.addEventListener('click',()=>setScene(b.dataset.scene)));
+
+/* =========================================================================
+   16. ربط الأحداث والأزرار التفاعلية
+   ========================================================================= */
+orbWrap.addEventListener('click',toggleBreathing);
+orbWrap.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleBreathing()}});
+orbWrap.addEventListener('contextmenu',e=>e.preventDefault());
+
+window.addEventListener('keydown',e=>{
+  if(e.code==='Space'&&!document.querySelector('.sheet.open')&&!/^(input|textarea|select|button)$/i.test(e.target.tagName)){
+    e.preventDefault();toggleBreathing();
+  }else if(e.key==='Escape'){
+    $$('.sheet').forEach(s=>s.classList.remove('open'));
+    mixerPanel.hidden=true;
+    if(journeyOverlay&&!journeyOverlay.hidden)stopSleepJourney();
+  }
+});
+
+// أزرار أنماط التنفس
+$$('.chip[data-p]').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    setBreathingPattern(btn.dataset.p);
+  });
+});
+
+// أزرار النوافذ
+$('#aiBtn').addEventListener('click',()=>{
+  aiSheet.classList.add('open');
+  setTimeout(()=>moodInput.focus(),160);
+});
+$('#openMixerBtn').addEventListener('click',()=>{mixerPanel.hidden=!mixerPanel.hidden});
+$('#closeMixerBtn').addEventListener('click',()=>{mixerPanel.hidden=true});
+
+$('#openPulseBtn').addEventListener('click',()=>{pulseSheet.classList.add('open')});
+$('#closePulseBtn').addEventListener('click',()=>{pulseSheet.classList.remove('open')});
+
+$('#openBuilderBtn').addEventListener('click',()=>{builderSheet.classList.add('open')});
+$('#closeBuilderBtn').addEventListener('click',()=>{builderSheet.classList.remove('open')});
+
+$('#openStatsBtn').addEventListener('click',()=>{
+  renderWeeklyBoard();
+  statsSheet.classList.add('open');
+});
+$('#closeStatsBtn').addEventListener('click',()=>{statsSheet.classList.remove('open')});
+
+// إغلاق النوافذ عند النقر على الخلفية
+$$('.sheet').forEach(sheet=>{
+  sheet.addEventListener('click',e=>{if(e.target===sheet)sheet.classList.remove('open')});
+});
+
+// أزرار مسارات الصوت في الخلاط
+$$('.track-toggle').forEach(btn=>{
+  btn.addEventListener('click',()=>{toggleTrack(btn.dataset.t)});
+});
+$$('.vol-slider').forEach(slider=>{
+  slider.addEventListener('input',()=>{updateTrackVolume(slider.dataset.vol,+slider.value)});
+});
+
+// زر تبديل الصوت
+soundBtn.addEventListener('click',()=>{
+  st.sound=!st.sound;saveSt();
+  soundBtn.classList.toggle('active',st.sound);
+  icSoundOn.style.display=st.sound?'':'none';
+  icSoundOff.style.display=st.sound?'none':'';
+  if(mixerMaster)mixerMaster.gain.setTargetAtTime(st.sound?0.9:0,actx().currentTime,0.15);
+  if(st.sound)playCueTone(330,392,0.25);
+});
+
+/* 17. Service Worker — أُزيل عمداً: الملف الواحد يعمل أوفلاين بطبيعته،
+      وتسجيل SW من Blob URL ترفضه المتصفحات، فلا معنى لوعود لا تتحقق. */
+
+/* =========================================================================
+   18. مساحات الإعلانات الذكية (AdSense Integration Hook)
+   ========================================================================= */
+const AD_CONFIG={enabled:true,demo:true,client:'ca-pub-2188601412548469',slotTop:'',slotBottom:''};
+function initAds(){
+  let anyLive=false;
+  [[adTop,AD_CONFIG.slotTop],[adBottom,AD_CONFIG.slotBottom]].forEach(pair=>{
+    const el=pair[0],slot=pair[1];
+    if(!AD_CONFIG.enabled||(!AD_CONFIG.demo&&!(AD_CONFIG.client&&slot))){el.style.display='none';return}
+    if(AD_CONFIG.client&&slot){
+      anyLive=true;
+      el.innerHTML='<ins class="adsbygoogle" style="display:block;width:100%;height:100%" data-ad-client="'+AD_CONFIG.client+'" data-ad-slot="'+slot+'" data-full-width-responsive="true"></ins>';
+    }else{
+      el.innerHTML='<div class="ad-demo">'+T().adDemo+'</div>';
+    }
+  });
+  if(anyLive){
+    const sc=document.createElement('script');sc.async=true;sc.crossOrigin='anonymous';
+    sc.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client='+AD_CONFIG.client;
+    document.head.appendChild(sc);
+    document.querySelectorAll('.adsbygoogle').forEach(()=>{try{(window.adsbygoogle=window.adsbygoogle||[]).push({})}catch(e){}});
+  }
+}
+
+/* =========================================================================
+   19.5 عيادة النوم والأرق (Insomnia Therapy) + نظام الترقية الصادق (Honest Pro)
+   ========================================================================= */
+function startInsomniaTherapy(withHypnotic){
+  st.insomniaMode=true;saveSt();
+  document.body.classList.add('insomnia-mode');
+  hypnoticCountdown=!!withHypnotic;
+  hypnoticNum=100;
+  setBreathingPattern('insomnia');
+  // أصوات مساعدة: مطر + ضجيج بني (+ دلتا للمشتركين)
+  if(!st.tracks.rain)toggleTrack('rain');
+  if(!st.tracks.brown)toggleTrack('brown');
+  if(isProActive()&&!st.tracks.delta)toggleTrack('delta');
+  // مؤقت إيقاف تلقائي بعد ساعة
+  ambTimer.value="60";
+  ambTimer.dispatchEvent(new Event('change'));
+  insomniaSheet.classList.remove('open');
+  typeMsg(aiMsg,T().insomniaActive);
+  startBreathing();
+}
+$('#openInsomniaBtn').addEventListener('click',()=>insomniaSheet.classList.add('open'));
+$('#closeInsomniaBtn').addEventListener('click',()=>insomniaSheet.classList.remove('open'));
+$('#startInsomniaTherapyBtn').addEventListener('click',()=>startInsomniaTherapy(false));
+$('#toggleHypnoticCountdownBtn').addEventListener('click',()=>startInsomniaTherapy(true));
+
+/* ── نظام الترقية: صادق تماماً — لا إعلانات وهمية ولا أكواد مكشوفة في الواجهة ── */
+function updateProUI(){
+  const pro=isProActive();
+  document.body.classList.toggle('is-pro',pro);
+  proHeaderBtn.classList.toggle('unlocked',pro);
+  $('#proStatusPill').textContent=pro?T().proStatus:T().freeStatus;
+  $$('.sound-track.pro-locked .track-toggle').forEach(btn=>{
+    if(!btn.closest('.sound-track').classList.contains('playing')){
+      btn.textContent=pro?T().trackPlay:T().proLocked;
+    }
+  });
+}
+function openProSheet(){proSheet.classList.add('open')}
+proHeaderBtn.addEventListener('click',openProSheet);
+$('#closeProBtn').addEventListener('click',()=>proSheet.classList.remove('open'));
+$('#activateKeyBtn').addEventListener('click',()=>{
+  const val=$('#licenseKeyInput').value.trim().toUpperCase();
+  const fb=$('#licenseFeedback');
+  if(MONETIZATION.licenseKeys.includes(val)){
+    st.isPro=true;st.proUntil=0;saveSt();updateProUI();
+    fb.style.color='var(--accent)';fb.textContent=T().keyValid;
+    setTimeout(()=>proSheet.classList.remove('open'),1400);
+  }else{
+    fb.style.color='#ff788c';fb.textContent=T().keyInvalid;
+  }
+});
+$('#trialBtn').addEventListener('click',()=>{
+  st.proUntil=Date.now()+24*3600*1000;saveSt();updateProUI();
+  proSheet.classList.remove('open');
+  typeMsg(aiMsg,T().trialStarted);
+});
+$('#buyProBtn').addEventListener('click',()=>{
+  window.open(MONETIZATION.paypalMe+'/2.99USD','_blank');
+});
+
+/* ── صندوق الدعم ── */
+$$('.tip-opt').forEach(opt=>{
+  opt.addEventListener('click',()=>{
+    $$('.tip-opt').forEach(x=>x.classList.remove('active'));
+    opt.classList.add('active');
+  });
+});
+$('#openTipBtn').addEventListener('click',()=>tipSheet.classList.add('open'));
+$('#closeTipBtn').addEventListener('click',()=>tipSheet.classList.remove('open'));
+$('#sendTipBtn').addEventListener('click',()=>{
+  const active=$$('.tip-opt.active')[0];
+  const amt=active?active.dataset.amt:'5';
+  window.open(MONETIZATION.paypalMe+'/'+amt+'USD','_blank');
+  tipSheet.classList.remove('open');
+});
+
+/* =========================================================================
+   20. الذكاء الاصطناعي المحلي الكامل (On-device WebLLM · WebGPU)
+   يُنزّل نموذجاً لغوياً صغيراً يعمل داخل المتصفح — بعد أول تنزيل يعمل بلا إنترنت
+   ========================================================================= */
+let localEngine=null,localLoading=false;
+const LOCAL_MODEL='Qwen2.5-0.5B-Instruct-q4f16_1-MLC';
+function setLocalStatus(state){
+  const dot=$('#localAiDot'),lbl=$('#localAiState'),pct=$('#localAiPct');
+  if(dot)dot.dataset.state=state;
+  if(lbl)lbl.textContent=(T().localStates&&T().localStates[state])||'';
+  if(pct&&state!=='loading'){pct.hidden=true;pct.textContent=''}
+}
+async function enableLocalAI(){
+  if(localEngine||localLoading)return;
+  if(!(navigator.gpu&&navigator.gpu.requestAdapter)){setLocalStatus('unsupported');return}
+  localLoading=true;
+  setLocalStatus('loading');
+  const pct=$('#localAiPct');
+  if(pct)pct.hidden=false;
+  try{
+    const webllm=await import('https://esm.run/@mlc-ai/web-llm');
+    localEngine=await webllm.CreateMLCEngine(LOCAL_MODEL,{
+      initProgressCallback:p=>{if(pct)pct.textContent=Math.round((p.progress||0)*100)+'%'}
+    });
+    st.localAI=true;saveSt();
+    setLocalStatus('ready');
+  }catch(e){
+    localEngine=null;
+    setLocalStatus('error');
+  }
+  localLoading=false;
+}
+$('#localAiBtn').addEventListener('click',enableLocalAI);
+
+/* =========================================================================
+   21. رؤية الكاميرا (AI Biofeedback) — مراقبة تنفسك الفعلية داخل جهازك
+   تحليل حركة الصدر بإطار مصغّر 32×24 — لا يُرفع أي فيديو لأي خادم
+   ========================================================================= */
+const camVideo=$('#camVideo'),camWave=$('#camWave'),camBtn=$('#camBtn'),camPanel=$('#camPanel'),
+camBpm=$('#camBpm'),camHint=$('#camHint'),camNote=$('#camNote');
+const camSample=document.createElement('canvas');
+camSample.width=32;camSample.height=24;
+const camCtx2=camSample.getContext('2d');
+const waveCtx=camWave?camWave.getContext('2d'):null;
+let camStream=null,camPrevFrame=null,camEnvelope=[],camBreathTimes=[];
+
+function closeCam(){
+  camPanel.hidden=true;
+  camBtn.classList.remove('active');
+  if(camStream){camStream.getTracks().forEach(t=>t.stop());camStream=null}
+  camPrevFrame=null;camEnvelope=[];camBreathTimes=[];
+}
+async function openCam(){
+  camPanel.hidden=false;
+  camBtn.classList.add('active');
+  if(camStream)return;
+  if(!(navigator.mediaDevices&&navigator.mediaDevices.getUserMedia)){camNote.textContent=T().camUnsupported;return}
+  try{
+    camStream=await navigator.mediaDevices.getUserMedia({video:{width:160,height:120,facingMode:'user'}});
+    camVideo.srcObject=camStream;
+  }catch(e){camStream=null;camNote.textContent=T().camDenied}
+}
+camBtn.addEventListener('click',()=>{camPanel.hidden?openCam():closeCam()});
+$('#closeCamBtn').addEventListener('click',closeCam);
+
+// عيّنة حركة كل 160 مللي (6 عينات/ثانية)
+setInterval(()=>{
+  if(camPanel.hidden||!camStream)return;
+  try{
+    camCtx2.drawImage(camVideo,0,0,32,24);
+    const d=camCtx2.getImageData(0,0,32,24).data;
+    if(!d)return;
+    if(camPrevFrame){
+      let e=0,n=0;
+      for(let i=0;i<d.length;i+=16){n++;e+=Math.abs(d[i+1]-camPrevFrame[i+1])}
+      const energy=e/Math.max(1,n);
+      camEnvelope.push(energy);
+      if(camEnvelope.length>120)camEnvelope.shift();
+      const now=Date.now();
+      const avg=camEnvelope.reduce((a,b)=>a+b,0)/Math.max(1,camEnvelope.length);
+      if(energy>avg*1.35&&(!camBreathTimes.length||now-camBreathTimes[camBreathTimes.length-1]>1200)){
+        camBreathTimes.push(now);
+        if(camBreathTimes.length>12)camBreathTimes.shift();
+      }
+    }
+    camPrevFrame=new Uint8ClampedArray(d);
+  }catch(err){}
+},160);
+
+// تحديث الواجهة والمزامنة كل ثانية
+setInterval(()=>{
+  if(camPanel.hidden||!camStream)return;
+  let bpm=0;
+  if(camBreathTimes.length>=2){
+    const span=camBreathTimes[camBreathTimes.length-1]-camBreathTimes[0];
+    if(span>3000)bpm=Math.round((camBreathTimes.length-1)*60000/span);
+  }
+  camBpm.textContent=T().camBpmV(bpm);
+  if(appState==='run'&&bpm>0){
+    const cycSec=currentPattern.phases.reduce((a,ph)=>a+ph.s,0);
+    const target=Math.round(60/cycSec);
+    if(Math.abs(bpm-target)<=2)camHint.textContent='✓ '+T().camSync;
+    else if(bpm>target)camHint.textContent=T().camNeedSlow;
+    else camHint.textContent=T().camNeedFast;
+  }else{
+    camHint.textContent=T().camIdle;
+  }
+  if(waveCtx){
+    const w=camWave.width,h=camWave.height;
+    waveCtx.clearRect(0,0,w,h);
+    const max=Math.max(10,...camEnvelope);
+    for(let i=0;i<camEnvelope.length;i++){
+      const v=camEnvelope[i],bh=Math.min(h,(v/max)*h);
+      waveCtx.fillStyle='rgba(134,230,207,.8)';
+      waveCtx.fillRect(i*(w/Math.max(1,camEnvelope.length)),h-bh,2,bh);
+    }
+  }
+},1000);
+
+/* =========================================================================
+   22. رحلة النَفَس نحو النوم العميق (Guided Sleep Journey · 6 دقائق)
+   إرشاد صوتي كامل: نبرة دافئة بطيئة + وقفات ممتدة + مطر خفيف مع 432Hz يخفت للصمت
+   ========================================================================= */
+const journeyOverlay=$('#journeyOverlay'),jrOrb=$('#jrOrb'),jrSub=$('#jrSub'),
+jrPhase=$('#jrPhase'),jrBar=$('#jrBar'),jrMoon=$('#jrMoon'),jrVignette=$('#jrVignette');
+
+/* المخطط الزمني للرحلة — كل سطر يُلفظ في ثانيته المحددة (ثوانٍ من البداية) */
+const SLEEP_JOURNEY={
+  phases:[
+    {t:0,ar:'التهيئة والاستقرار',en:'Settling In'},
+    {t:60,ar:'مسح الجسد وإسقاط الشد',en:'Body Scan & Release'},
+    {t:150,ar:'إيقاع التنفس 4·7·8',en:'Breathing Rhythm 4·7·8'},
+    {t:270,ar:'ثقل الهدوء والتلاشي',en:'Sinking In & Fading'}
+  ],
+  lines:[
+    {t:3,ar:'أغلق عينيك برفق...',en:'Close your eyes gently...'},
+    {t:9,ar:'اجعل جسدك يستقر في مكانه دافئاً وآمناً...',en:'Let your body settle into its place, warm and safe...'},
+    {t:17,ar:'ليس عليك أن تفعل أي شيء الآن... ليس عليك أن تفكر في أي شيء...',en:'You do not have to do anything now... you do not have to think about anything...'},
+    {t:27,ar:'اليوم انتهى بكل ما فيه... وما قادم غداً ينتظر غداً...',en:'The day is over, with everything in it... and tomorrow can wait until tomorrow...'},
+    {t:36,ar:'الآن... هذا الوقت ملك لنفَسك فقط.',en:'Now... this time belongs to your breath alone.'},
+    {t:62,ar:'وجه انتباهك برفق إلى عضلات وجهك...',en:'Gently bring your attention to the muscles of your face...'},
+    {t:69,ar:'أرخِ جبهتك... دع حاجبيك يتباعدان...',en:'Soften your forehead... let your eyebrows drift apart...'},
+    {t:78,ar:'انتبه إلى الفك... دع الفك السفلي يسترخي قليلاً... ويستقر بعيداً عن الأعلى...',en:'Notice your jaw... let the lower jaw relax... and settle away from the top...'},
+    {t:90,ar:'دع لسانك يستريح في أسفل الفم...',en:'Let your tongue rest at the bottom of your mouth...'},
+    {t:100,ar:'الآن... اترك كتفيك ينزلان إلى الأسفل... بعيداً عن أذنيك...',en:'Now... let your shoulders slide down... away from your ears...'},
+    {t:112,ar:'كأن كلاً منهما يذوب بدفء داخل السرير...',en:'As if each one is melting warmly into the bed...'},
+    {t:122,ar:'ذراعاك ثقيلتان... يداك مسترخيتان تماماً.',en:'Your arms are heavy... your hands completely at rest.'},
+    {t:152,ar:'الآن سنجعل أنفاسنا هي الدليل...',en:'Now we let the breath be our guide...'},
+    {t:160,ar:'خذ شهيقاً هادئاً من الأنف... واحد... اثنان... ثلاثة... أربعة...',en:'Breathe in gently through your nose... one... two... three... four...'},
+    {t:172,ar:'احبس النَفَس برفق... واحد... اثنان... ثلاثة... أربعة... خمسة... ستة... سبعة...',en:'Hold the breath softly... one... two... three... four... five... six... seven...'},
+    {t:186,ar:'اطرد الهواء ببطء ولطف من الفم... واحد... اثنان... ثلاثة... أربعة... خمسة... ستة... سبعة... ثمانية...',en:'Release the air slowly and gently through your mouth... one... two... three... four... five... six... seven... eight...'},
+    {t:202,ar:'مرة أخرى... شهيق هادئ... واحد... اثنان... ثلاثة... أربعة...',en:'Once more... a quiet breath in... one... two... three... four...'},
+    {t:214,ar:'احبس برفق... واحد... اثنان... ثلاثة... أربعة... خمسة... ستة... سبعة...',en:'Hold gently... one... two... three... four... five... six... seven...'},
+    {t:228,ar:'زفير بطيء... واحد... اثنان... ثلاثة... أربعة... خمسة... ستة... سبعة... ثمانية...',en:'Slow exhale... one... two... three... four... five... six... seven... eight...'},
+    {t:244,ar:'مع كل زفير... يخرج المتبقي من توتر اليوم...',en:'With every exhale... the last of the day\'s tension leaves you...'},
+    {t:252,ar:'ومع كل شهيق... يدخل السكون إلى صدرك...',en:'And with every inhale... stillness enters your chest...'},
+    {t:260,ar:'لا تقاوم الأفكار إذا مرت ببالك... اعتبرها سحباً تعبر السماء... دعها تمر... ودع عينيك تتجهان نحو الظلام الهادئ بداخلك.',en:'Do not resist thoughts if they pass through... treat them as clouds crossing the sky... let them pass... and let your eyes turn toward the quiet darkness within you.'},
+    {t:272,ar:'تشعر الآن بثقل استرخاء دافئ يسري في ساقيك...',en:'Feel a warm heaviness flowing through your legs...'},
+    {t:282,ar:'من الوركين... إلى الركبتين... حتى أطراف قدميك...',en:'From your hips... to your knees... to the tips of your toes...'},
+    {t:294,ar:'أنفاسك الآن تعود لإيقاعها الطبيعي البطيء... دون أي جهد...',en:'Your breath now returns to its natural slow rhythm... without any effort...'},
+    {t:306,ar:'صدرك يعلو ويهبط كالترددات الهادئة...',en:'Your chest rises and falls like gentle waves...'},
+    {t:316,ar:'أنت آمن... أنت بسلام...',en:'You are safe... you are at peace...'},
+    {t:324,ar:'استسلم للنوم... استسلم للهدوء...',en:'Surrender to sleep... surrender to calm...'},
+    {t:332,ar:'تصبح على خير.',en:'Goodnight.'}
+  ]
+};
+const JOURNEY_TOTAL=360;
+
+let jr=null;
+function speakJourneyLine(txt,atSecond){
+  jrSub.style.opacity=0;
+  setTimeout(()=>{jrSub.textContent=txt;jrSub.style.opacity=1},420);
+  // نطق طبيعي: جُمَع قصيرة بوقفات تنفّس مصنّفة، ونبرة تزداد رقّة واستقراراً
+  // كل ما تقدّمنا في الرحلة نحو النوم
+  const depth=typeof atSecond==='number'?atSecond/JOURNEY_TOTAL:0;
+  speakNaturally(txt,{lang:st.lang==='ar'?'ar':'en',rate:0.7,pitch:0.84,depth});
+}
+function startSleepJourney(){
+  if(jr)return;
+  stopBreathing();
+  stopAllTracks();
+  clearNaturalQueue();
+  journeyOverlay.hidden=false;
+  requestAnimationFrame(()=>journeyOverlay.classList.add('on'));
+  // صوت الخلفية: مطر خفيف متداخل مع تردد 432Hz
+  let g=null,nodes=[];
+  try{
+    const a=actx();
+    g=a.createGain();
+    g.gain.setValueAtTime(0,a.currentTime);
+    g.connect(getMixerMaster());
+    g.gain.setTargetAtTime(0.5,a.currentTime,3);
+    const n=createLoopSource(a,createNoiseBuffer(a,'white'));
+    const lp=a.createBiquadFilter();lp.type='lowpass';lp.frequency.value=1500;
+    const ng=a.createGain();ng.gain.value=0.16;
+    n.connect(lp);lp.connect(ng);ng.connect(g);n.start();
+    nodes.push(n);
+    const o=a.createOscillator();o.type='sine';o.frequency.value=432;
+    const og=a.createGain();og.gain.value=0.05;
+    o.connect(og);og.connect(g);o.start();
+    nodes.push(o);
+  }catch(e){g=null}
+  jr={start:Date.now(),timers:[],gain:g,nodes,breathRAF:0,barTimer:0};
+  // جدولة الجمل — كل سطر في ثانيته المحددة (وقفات ممتدة بين الجمل)
+  SLEEP_JOURNEY.lines.forEach(L=>{
+    jr.timers.push(setTimeout(()=>{if(jr)speakJourneyLine(st.lang==='ar'?L.ar:L.en,L.t)},L.t*1000));
+  });
+  // جدولة عناوين المراحل
+  SLEEP_JOURNEY.phases.forEach(ph=>{
+    jr.timers.push(setTimeout(()=>{if(jr)jrPhase.textContent=st.lang==='ar'?ph.ar:ph.en},ph.t*1000));
+  });
+  // نبض كرة التنفس 4-7-8 خلال مرحلة الإيقاع (150 ➔ 270 ثانية)
+  jr.timers.push(setTimeout(()=>{
+    if(!jr)return;
+    jrOrb.style.display='block';
+    const t0=Date.now(),end=t0+120000;
+    const pulse=()=>{
+      if(!jr)return;
+      const c=((Date.now()-t0)/1000)%19;
+      let sc;
+      if(c<4)sc=0.55+0.45*easeInOut(c/4);
+      else if(c<11)sc=1;
+      else sc=1-0.45*easeInOut((c-11)/8);
+      jrOrb.style.transform='scale('+sc.toFixed(3)+')';
+      if(Date.now()<end)jr.breathRAF=requestAnimationFrame(pulse);
+      else jrOrb.style.display='none';
+    };
+    jr.breathRAF=requestAnimationFrame(pulse);
+  },150000));
+  // الخفوت التدريجي للأصوات حتى الصمت (من 334 ثانية)
+  jr.timers.push(setTimeout(()=>{
+    if(jr&&jr.gain)jr.gain.gain.setTargetAtTime(0.0001,AC.currentTime,8);
+  },334000));
+  // شريط التقدم + القمر يهبط + الظلام يعمق (كل ثانية)
+  jr.barTimer=setInterval(()=>{
+    if(!jr)return;
+    const el=(Date.now()-jr.start)/1000;
+    jrBar.style.width=Math.min(100,el/JOURNEY_TOTAL*100)+'%';
+    jrMoon.style.transform='translateY('+(Math.min(el/JOURNEY_TOTAL,1)*44).toFixed(1)+'px)';
+    jrVignette.style.opacity=Math.min(0.85,el/JOURNEY_TOTAL*0.85);
+  },1000);
+  // نهاية الرحلة: صمت تام وشاشة معتمة — دون أي إيقاظ
+  jr.timers.push(setTimeout(()=>{
+    if(!jr)return;
+    clearInterval(jr.barTimer);
+    jr.barTimer=0;
+    clearNaturalQueue();
+    jrSub.textContent='';jrPhase.textContent='';
+    jr=null;
+  },JOURNEY_TOTAL*1000));
+}
+function stopSleepJourney(){
+  if(jr){
+    jr.timers.forEach(clearTimeout);
+    cancelAnimationFrame(jr.breathRAF);
+    if(jr.barTimer)clearInterval(jr.barTimer);
+    try{
+      if(jr.gain){
+        jr.gain.gain.setTargetAtTime(0.0001,AC.currentTime,0.4);
+        const g=jr.gain,ns=jr.nodes;
+        setTimeout(()=>{try{ns.forEach(x=>{try{x.stop()}catch(e){}});g.disconnect()}catch(e){}},1000);
+      }
+    }catch(e){}
+  }
+  jr=null;
+  clearNaturalQueue();
+  jrOrb.style.display='none';
+  journeyOverlay.classList.remove('on');
+  setTimeout(()=>{journeyOverlay.hidden=true},1400);
+}
+$('#startJourneyBtn').addEventListener('click',()=>{
+  insomniaSheet.classList.remove('open');
+  startSleepJourney();
+});
+$('#jrStopBtn').addEventListener('click',stopSleepJourney);
+
+/* =========================================================================
+   19. انطلاق التطبيق وتفعيل الإعدادات
+   ========================================================================= */
+if(st.customPattern){
+  customChip.hidden=false;
+  customChip.querySelector('span').textContent=st.customPattern.phases.map(ph=>ph.s).join('·');
+}
+soundBtn.classList.toggle('active',st.sound);
+icSoundOn.style.display=st.sound?'':'none';
+icSoundOff.style.display=st.sound?'none':'';
+hapticBtn.classList.toggle('active',st.haptic);
+voiceBtn.classList.toggle('active',st.voice);
+if(st.night)setNightMode(true);
+
+setStageTheme('calm');
+setScene(st.scene);
+applyLanguage();
+if(st.localAI)enableLocalAI();
+st.insomniaMode=false;saveSt();
+updateProUI();
+initAds();
+requestAnimationFrame(mainLoop);
+
+// واجهة برمجية مصغرة للتطوير والاختبار
+window.__NAFAS={
+  state:()=>appState,
+  pattern:()=>currentPattern,
+  stats:()=>st,
+  mixer:()=>activeTracks
+};
+
+})();
+</script>
+</body>
+</html>
